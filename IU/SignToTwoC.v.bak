@@ -1,0 +1,27 @@
+module SignToTwoC #(parameter N = 8) (
+    input [N-1:0] signedMagInput,
+    output [7:0] twosCompOutput
+);
+    wire isNegative = signedMagInput[N-1]; // Check if the input is negative
+    wire [N-2:0] absInput = signedMagInput[N-2:0]; // Absolute value (without sign bit)
+    wire [7:0] invertedInput; // For inverting the bits if negative
+    wire [7:0] tempOutput;
+
+    // Invert the bits if the number is negative
+    assign invertedInput = isNegative ? ~absInput : absInput;
+
+    // Add 1 if negative to complete two's complement
+    assign tempOutput = invertedInput + isNegative;
+
+    // Assign output, zero-padding or truncating as necessary
+    generate
+        genvar i;
+        for (i = 0; i < 8; i = i + 1) begin
+            if (i < N - 1) begin
+                assign twosCompOutput[i] = tempOutput[i];
+            end else begin
+                assign twosCompOutput[i] = isNegative;
+            end
+        end
+    endgenerate
+endmodule

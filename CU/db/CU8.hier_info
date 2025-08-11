@@ -1,0 +1,25 @@
+|CU8
+value[0] => Equal0.IN3
+value[0] => Equal1.IN2
+value[0] => Equal2.IN3
+value[1] => Equal0.IN1
+value[1] => Equal1.IN1
+value[1] => Equal2.IN2
+value[2] => Equal0.IN2
+value[2] => Equal1.IN3
+value[2] => Equal2.IN1
+value[3] => Equal0.IN0
+value[3] => Equal1.IN0
+value[3] => Equal2.IN0
+clk => operation~reg0.CLK
+clk => state~3.DATAIN
+clearAll => state~5.DATAIN
+clearAll => operation~reg0.ENA
+reset <= reset.DB_MAX_OUTPUT_PORT_TYPE
+loadA <= loadA.DB_MAX_OUTPUT_PORT_TYPE
+loadB <= loadB.DB_MAX_OUTPUT_PORT_TYPE
+operation <= operation~reg0.DB_MAX_OUTPUT_PORT_TYPE
+loadR <= IUAU.DB_MAX_OUTPUT_PORT_TYPE
+IUAU <= IUAU.DB_MAX_OUTPUT_PORT_TYPE
+
+

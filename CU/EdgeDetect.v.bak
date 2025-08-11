@@ -1,0 +1,16 @@
+module EdgeDetect(
+    input in,
+    input clock,
+    output out
+);
+    // Register to hold the previous state of the input
+    reg in_delay;
+
+    // Update the stored previous state on every positive edge of the clock
+    always @(posedge clock) begin
+        in_delay <= in;
+    end
+
+    // Output high only on the rising edge of 'in'
+    assign out = in & ~in_delay;  // True only when 'in' is 1 and 'in_delay' is 0
+endmodule

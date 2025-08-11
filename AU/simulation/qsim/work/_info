@@ -1,0 +1,130 @@
+m255
+K4
+z2
+!s11f vlog 2020.1 2020.02, Feb 28 2020
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 dD:/MyCSE2441Labs/Term_Project/AU/simulation/qsim
+vAU8
+Z1 !s110 1712128477
+!i10b 1
+!s100 CUEl2LG?aD6K0L_IEI3211
+Z2 !s11b Dg1SIo80bB@j0V0VzS_@n1
+IdR_ekIB`eG9GQ5lC46?n41
+Z3 VDg1SIo80bB@j0V0VzS_@n1
+R0
+w1712128476
+Z4 8AU8.vo
+Z5 FAU8.vo
+!i122 2
+L0 32 2073
+Z6 OV;L;2020.1;71
+r1
+!s85 0
+31
+!s108 1712128476.000000
+Z7 !s107 AU8.vo|
+Z8 !s90 -work|work|AU8.vo|
+!i113 1
+Z9 o-work work
+Z10 tCvgOpt 0
+n@a@u8
+vAU8_vlg_vec_tst
+R1
+!i10b 1
+!s100 ocmIL44>JXCK3><]bJjji2
+R2
+I6A?ZRiD:XPV<1o;60LNO82
+R3
+R0
+w1712128474
+Z11 8Waveform.vwf.vt
+Z12 FWaveform.vwf.vt
+!i122 3
+L0 30 114
+R6
+r1
+!s85 0
+31
+!s108 1712128477.000000
+!s107 Waveform.vwf.vt|
+Z13 !s90 -work|work|Waveform.vwf.vt|
+!i113 1
+R9
+R10
+n@a@u8_vlg_vec_tst
+vhard_block
+Z14 !s110 1714410333
+!i10b 1
+!s100 f=MZ>edYe6ELW07P=>Yj=2
+R2
+IOblJEX53SXdgY79ODc75:1
+R3
+R0
+Z15 w1714410332
+R4
+R5
+!i122 8
+L0 979 45
+R6
+r1
+!s85 0
+31
+Z16 !s108 1714410332.000000
+R7
+R8
+!i113 1
+R9
+R10
+vRippleCarryAdderStructural
+R14
+!i10b 1
+!s100 VDoi>P:99E0a8Q0NMzzi<3
+R2
+IKMhi569LeoKKeR5UoWoBK3
+R3
+R0
+R15
+R4
+R5
+!i122 8
+L0 32 946
+R6
+r1
+!s85 0
+31
+R16
+R7
+R8
+!i113 1
+R9
+R10
+n@ripple@carry@adder@structural
+vRippleCarryAdderStructural_vlg_vec_tst
+!s110 1714410334
+!i10b 1
+!s100 nSe]<[hFOGGN45:`??9P=2
+R2
+I[HKm>X>5k<V29PbUD8M480
+R3
+R0
+w1714410330
+R11
+R12
+!i122 9
+L0 30 116
+R6
+r1
+!s85 0
+31
+!s108 1714410333.000000
+Z17 !s107 Waveform.vwf.vt|
+R13
+!i113 1
+R9
+R10
+n@ripple@carry@adder@structural_vlg_vec_tst

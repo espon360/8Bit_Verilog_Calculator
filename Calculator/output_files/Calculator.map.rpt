@@ -1,0 +1,948 @@
+Analysis & Synthesis report for Calculator
+Mon Apr 29 15:02:04 2024
+Quartus Prime Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Analysis & Synthesis Summary
+  3. Analysis & Synthesis Settings
+  4. Parallel Compilation
+  5. Analysis & Synthesis Source Files Read
+  6. Analysis & Synthesis Resource Usage Summary
+  7. Analysis & Synthesis Resource Utilization by Entity
+  8. State Machine - |Calculator|CU8:CU8_inst|state
+  9. Registers Removed During Synthesis
+ 10. General Register Statistics
+ 11. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 12. Parameter Settings for User Entity Instance: keypad_input:keypad_input_inst
+ 13. Parameter Settings for User Entity Instance: keypad_input:keypad_input_inst|keypad_base:keypad_base|clock_div:keypad_clock_divider
+ 14. Parameter Settings for User Entity Instance: keypad_input:keypad_input_inst|keypad_base:keypad_base|keypad_decoder:keypad_key_decoder
+ 15. Parameter Settings for User Entity Instance: keypad_input:keypad_input_inst|shift_reg:shift_reg
+ 16. Parameter Settings for User Entity Instance: CU8:CU8_inst
+ 17. Parameter Settings for User Entity Instance: IU8:IU8_inst
+ 18. Parameter Settings for User Entity Instance: IU8:IU8_inst|keypad_input:keypad_input_inst
+ 19. Parameter Settings for User Entity Instance: IU8:IU8_inst|keypad_input:keypad_input_inst|keypad_base:keypad_base|clock_div:keypad_clock_divider
+ 20. Parameter Settings for User Entity Instance: IU8:IU8_inst|keypad_input:keypad_input_inst|keypad_base:keypad_base|keypad_decoder:keypad_key_decoder
+ 21. Parameter Settings for User Entity Instance: IU8:IU8_inst|keypad_input:keypad_input_inst|shift_reg:shift_reg
+ 22. Parameter Settings for User Entity Instance: IU8:IU8_inst|BCD2BinarySM:BCD2BinarySM_inst
+ 23. Parameter Settings for User Entity Instance: IU8:IU8_inst|SignToTwoC:SignToTwoC_inst
+ 24. Parameter Settings for User Entity Instance: AU8:AU8_inst|NBitRegister:Register_A
+ 25. Parameter Settings for User Entity Instance: AU8:AU8_inst|NBitRegister:Register_B
+ 26. Parameter Settings for User Entity Instance: AU8:AU8_inst|NBitRegister:Register_R
+ 27. Parameter Settings for User Entity Instance: OU8:OU8_inst|TwoCToSign:TwoCToSign_inst
+ 28. Parameter Settings for Inferred Entity Instance: IU8:IU8_inst|BCD2BinarySM:BCD2BinarySM_inst|lpm_mult:Mult0
+ 29. lpm_mult Parameter Settings by Entity Instance
+ 30. Port Connectivity Checks: "OU8:OU8_inst|binary2bcd:binary2bcd_inst|add3:m6"
+ 31. Port Connectivity Checks: "OU8:OU8_inst|binary2bcd:binary2bcd_inst|add3:m1"
+ 32. Port Connectivity Checks: "OU8:OU8_inst|binary2bcd:binary2bcd_inst"
+ 33. Port Connectivity Checks: "OU8:OU8_inst|TwoCToSign:TwoCToSign_inst|halfADDER:twosFor[7].halfADDER_inst1"
+ 34. Port Connectivity Checks: "AU8:AU8_inst|four2seven:LSB"
+ 35. Port Connectivity Checks: "AU8:AU8_inst|four2seven:MSB"
+ 36. Port Connectivity Checks: "IU8:IU8_inst|keypad_input:keypad_input_inst"
+ 37. Port Connectivity Checks: "keypad_input:keypad_input_inst|shift_reg:shift_reg"
+ 38. Port Connectivity Checks: "keypad_input:keypad_input_inst|keypad_base:keypad_base|keypad_fsm:keypad_fsm"
+ 39. Port Connectivity Checks: "keypad_input:keypad_input_inst|keypad_base:keypad_base|clock_div:keypad_clock_divider"
+ 40. Port Connectivity Checks: "keypad_input:keypad_input_inst|keypad_base:keypad_base"
+ 41. Port Connectivity Checks: "keypad_input:keypad_input_inst"
+ 42. Post-Synthesis Netlist Statistics for Top Partition
+ 43. Elapsed Time Per Partition
+ 44. Analysis & Synthesis Messages
+ 45. Analysis & Synthesis Suppressed Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 2020  Intel Corporation. All rights reserved.
+Your use of Intel Corporation's design tools, logic functions 
+and other software and tools, and any partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Intel Program License 
+Subscription Agreement, the Intel Quartus Prime License Agreement,
+the Intel FPGA IP License Agreement, or other applicable license
+agreement, including, without limitation, that your use is for
+the sole purpose of programming logic devices manufactured by
+Intel and sold by Intel or its authorized distributors.  Please
+refer to the applicable agreement for further details, at
+https://fpgasoftware.intel.com/eula.
+
+
+
++----------------------------------------------------------------------------------+
+; Analysis & Synthesis Summary                                                     ;
++------------------------------------+---------------------------------------------+
+; Analysis & Synthesis Status        ; Successful - Mon Apr 29 15:02:03 2024       ;
+; Quartus Prime Version              ; 20.1.1 Build 720 11/11/2020 SJ Lite Edition ;
+; Revision Name                      ; Calculator                                  ;
+; Top-level Entity Name              ; Calculator                                  ;
+; Family                             ; MAX 10                                      ;
+; Total logic elements               ; 347                                         ;
+;     Total combinational functions  ; 329                                         ;
+;     Dedicated logic registers      ; 93                                          ;
+; Total registers                    ; 93                                          ;
+; Total pins                         ; 44                                          ;
+; Total virtual pins                 ; 0                                           ;
+; Total memory bits                  ; 0                                           ;
+; Embedded Multiplier 9-bit elements ; 0                                           ;
+; Total PLLs                         ; 0                                           ;
+; UFM blocks                         ; 0                                           ;
+; ADC blocks                         ; 0                                           ;
++------------------------------------+---------------------------------------------+
+
+
++------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Settings                                                                              ;
++------------------------------------------------------------------+--------------------+--------------------+
+; Option                                                           ; Setting            ; Default Value      ;
++------------------------------------------------------------------+--------------------+--------------------+
+; Device                                                           ; 10M50DAF484C7G     ;                    ;
+; Top-level entity name                                            ; Calculator         ; Calculator         ;
+; Family name                                                      ; MAX 10             ; Cyclone V          ;
+; Use smart compilation                                            ; Off                ; Off                ;
+; Enable parallel Assembler and Timing Analyzer during compilation ; On                 ; On                 ;
+; Enable compact report table                                      ; Off                ; Off                ;
+; Restructure Multiplexers                                         ; Auto               ; Auto               ;
+; Create Debugging Nodes for IP Cores                              ; Off                ; Off                ;
+; Preserve fewer node names                                        ; On                 ; On                 ;
+; Intel FPGA IP Evaluation Mode                                    ; Enable             ; Enable             ;
+; Verilog Version                                                  ; Verilog_2001       ; Verilog_2001       ;
+; VHDL Version                                                     ; VHDL_1993          ; VHDL_1993          ;
+; State Machine Processing                                         ; Auto               ; Auto               ;
+; Safe State Machine                                               ; Off                ; Off                ;
+; Extract Verilog State Machines                                   ; On                 ; On                 ;
+; Extract VHDL State Machines                                      ; On                 ; On                 ;
+; Ignore Verilog initial constructs                                ; Off                ; Off                ;
+; Iteration limit for constant Verilog loops                       ; 5000               ; 5000               ;
+; Iteration limit for non-constant Verilog loops                   ; 250                ; 250                ;
+; Add Pass-Through Logic to Inferred RAMs                          ; On                 ; On                 ;
+; Infer RAMs from Raw Logic                                        ; On                 ; On                 ;
+; Parallel Synthesis                                               ; On                 ; On                 ;
+; DSP Block Balancing                                              ; Auto               ; Auto               ;
+; NOT Gate Push-Back                                               ; On                 ; On                 ;
+; Power-Up Don't Care                                              ; On                 ; On                 ;
+; Remove Redundant Logic Cells                                     ; Off                ; Off                ;
+; Remove Duplicate Registers                                       ; On                 ; On                 ;
+; Ignore CARRY Buffers                                             ; Off                ; Off                ;
+; Ignore CASCADE Buffers                                           ; Off                ; Off                ;
+; Ignore GLOBAL Buffers                                            ; Off                ; Off                ;
+; Ignore ROW GLOBAL Buffers                                        ; Off                ; Off                ;
+; Ignore LCELL Buffers                                             ; Off                ; Off                ;
+; Ignore SOFT Buffers                                              ; On                 ; On                 ;
+; Limit AHDL Integers to 32 Bits                                   ; Off                ; Off                ;
+; Optimization Technique                                           ; Balanced           ; Balanced           ;
+; Carry Chain Length                                               ; 70                 ; 70                 ;
+; Auto Carry Chains                                                ; On                 ; On                 ;
+; Auto Open-Drain Pins                                             ; On                 ; On                 ;
+; Perform WYSIWYG Primitive Resynthesis                            ; Off                ; Off                ;
+; Auto ROM Replacement                                             ; On                 ; On                 ;
+; Auto RAM Replacement                                             ; On                 ; On                 ;
+; Auto DSP Block Replacement                                       ; On                 ; On                 ;
+; Auto Shift Register Replacement                                  ; Auto               ; Auto               ;
+; Allow Shift Register Merging across Hierarchies                  ; Auto               ; Auto               ;
+; Auto Clock Enable Replacement                                    ; On                 ; On                 ;
+; Strict RAM Replacement                                           ; Off                ; Off                ;
+; Allow Synchronous Control Signals                                ; On                 ; On                 ;
+; Force Use of Synchronous Clear Signals                           ; Off                ; Off                ;
+; Auto RAM Block Balancing                                         ; On                 ; On                 ;
+; Auto RAM to Logic Cell Conversion                                ; Off                ; Off                ;
+; Auto Resource Sharing                                            ; Off                ; Off                ;
+; Allow Any RAM Size For Recognition                               ; Off                ; Off                ;
+; Allow Any ROM Size For Recognition                               ; Off                ; Off                ;
+; Allow Any Shift Register Size For Recognition                    ; Off                ; Off                ;
+; Use LogicLock Constraints during Resource Balancing              ; On                 ; On                 ;
+; Ignore translate_off and synthesis_off directives                ; Off                ; Off                ;
+; Timing-Driven Synthesis                                          ; On                 ; On                 ;
+; Report Parameter Settings                                        ; On                 ; On                 ;
+; Report Source Assignments                                        ; On                 ; On                 ;
+; Report Connectivity Checks                                       ; On                 ; On                 ;
+; Ignore Maximum Fan-Out Assignments                               ; Off                ; Off                ;
+; Synchronization Register Chain Length                            ; 2                  ; 2                  ;
+; Power Optimization During Synthesis                              ; Normal compilation ; Normal compilation ;
+; HDL message level                                                ; Level2             ; Level2             ;
+; Suppress Register Optimization Related Messages                  ; Off                ; Off                ;
+; Number of Removed Registers Reported in Synthesis Report         ; 5000               ; 5000               ;
+; Number of Swept Nodes Reported in Synthesis Report               ; 5000               ; 5000               ;
+; Number of Inverted Registers Reported in Synthesis Report        ; 100                ; 100                ;
+; Clock MUX Protection                                             ; On                 ; On                 ;
+; Auto Gated Clock Conversion                                      ; Off                ; Off                ;
+; Block Design Naming                                              ; Auto               ; Auto               ;
+; SDC constraint protection                                        ; Off                ; Off                ;
+; Synthesis Effort                                                 ; Auto               ; Auto               ;
+; Shift Register Replacement - Allow Asynchronous Clear Signal     ; On                 ; On                 ;
+; Pre-Mapping Resynthesis Optimization                             ; Off                ; Off                ;
+; Analysis & Synthesis Message Level                               ; Medium             ; Medium             ;
+; Disable Register Merging Across Hierarchies                      ; Auto               ; Auto               ;
+; Resource Aware Inference For Block RAM                           ; On                 ; On                 ;
++------------------------------------------------------------------+--------------------+--------------------+
+
+
++------------------------------------------+
+; Parallel Compilation                     ;
++----------------------------+-------------+
+; Processors                 ; Number      ;
++----------------------------+-------------+
+; Number detected on machine ; 8           ;
+; Maximum allowed            ; 4           ;
+;                            ;             ;
+; Average used               ; 1.00        ;
+; Maximum used               ; 4           ;
+;                            ;             ;
+; Usage by Processor         ; % Time Used ;
+;     Processor 1            ; 100.0%      ;
+;     Processor 2            ;   0.0%      ;
+;     Processors 3-4         ;   0.0%      ;
++----------------------------+-------------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                                  ;
++----------------------------------+-----------------+------------------------------+---------------------------------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type                    ; File Name with Absolute Path                                              ; Library ;
++----------------------------------+-----------------+------------------------------+---------------------------------------------------------------------------+---------+
+; Calculator.v                     ; yes             ; User Verilog HDL File        ; D:/MyCSE2441Labs/Term_Project/Calculator/Calculator.v                     ;         ;
+; ../OU/OU8.v                      ; yes             ; User Verilog HDL File        ; D:/MyCSE2441Labs/Term_Project/OU/OU8.v                                    ;         ;
+; ../IU/IU8.v                      ; yes             ; User Verilog HDL File        ; D:/MyCSE2441Labs/Term_Project/IU/IU8.v                                    ;         ;
+; ../AU/AU8.v                      ; yes             ; User Verilog HDL File        ; D:/MyCSE2441Labs/Term_Project/AU/AU8.v                                    ;         ;
+; ../OU/four2sevenTen.v            ; yes             ; User Verilog HDL File        ; D:/MyCSE2441Labs/Term_Project/OU/four2sevenTen.v                          ;         ;
+; ../OU/four2sevenHun.v            ; yes             ; User Verilog HDL File        ; D:/MyCSE2441Labs/Term_Project/OU/four2sevenHun.v                          ;         ;
+; keypad_input.v                   ; yes             ; Auto-Found Verilog HDL File  ; d:/mycse2441labs/term_project/iu/keypad_input.v                           ;         ;
+; keypad_base.v                    ; yes             ; Auto-Found Verilog HDL File  ; d:/mycse2441labs/term_project/iu/keypad_base.v                            ;         ;
+; clock_div.v                      ; yes             ; Auto-Found Verilog HDL File  ; d:/mycse2441labs/term_project/iu/clock_div.v                              ;         ;
+; keypad_fsm.v                     ; yes             ; Auto-Found Verilog HDL File  ; d:/mycse2441labs/term_project/iu/keypad_fsm.v                             ;         ;
+; keypad_decoder.v                 ; yes             ; Auto-Found Verilog HDL File  ; d:/mycse2441labs/term_project/iu/keypad_decoder.v                         ;         ;
+; shift_reg.v                      ; yes             ; Auto-Found Verilog HDL File  ; d:/mycse2441labs/term_project/iu/shift_reg.v                              ;         ;
+; cu8.v                            ; yes             ; Auto-Found Verilog HDL File  ; D:/MyCSE2441Labs/Term_Project/Calculator/cu8.v                            ;         ;
+; validity_checker.v               ; yes             ; Auto-Found Verilog HDL File  ; d:/mycse2441labs/term_project/iu/validity_checker.v                       ;         ;
+; bcd2binarysm.v                   ; yes             ; Auto-Found Verilog HDL File  ; d:/mycse2441labs/term_project/iu/bcd2binarysm.v                           ;         ;
+; signtotwoc.v                     ; yes             ; Auto-Found Verilog HDL File  ; d:/mycse2441labs/term_project/iu/signtotwoc.v                             ;         ;
+; nbitregister.v                   ; yes             ; Auto-Found Verilog HDL File  ; d:/mycse2441labs/term_project/au/nbitregister.v                           ;         ;
+; ripplecarryadderstructural.v     ; yes             ; Auto-Found Verilog HDL File  ; d:/mycse2441labs/term_project/au/ripplecarryadderstructural.v             ;         ;
+; fabehav.v                        ; yes             ; Auto-Found Verilog HDL File  ; d:/mycse2441labs/term_project/au/fabehav.v                                ;         ;
+; four2seven.v                     ; yes             ; Auto-Found Verilog HDL File  ; d:/mycse2441labs/term_project/ou/four2seven.v                             ;         ;
+; twoctosign.v                     ; yes             ; Auto-Found Verilog HDL File  ; d:/mycse2441labs/term_project/ou/twoctosign.v                             ;         ;
+; halfadder.v                      ; yes             ; Auto-Found Verilog HDL File  ; d:/mycse2441labs/term_project/ou/halfadder.v                              ;         ;
+; binary2bcd.v                     ; yes             ; Auto-Found Verilog HDL File  ; d:/mycse2441labs/term_project/ou/binary2bcd.v                             ;         ;
+; add3.v                           ; yes             ; Auto-Found Verilog HDL File  ; d:/mycse2441labs/term_project/ou/add3.v                                   ;         ;
+; displaynegative.v                ; yes             ; Auto-Found Verilog HDL File  ; d:/mycse2441labs/term_project/ou/displaynegative.v                        ;         ;
+; lpm_mult.tdf                     ; yes             ; Megafunction                 ; c:/intelfpga_lite/20.1/quartus/libraries/megafunctions/lpm_mult.tdf       ;         ;
+; aglobal201.inc                   ; yes             ; Megafunction                 ; c:/intelfpga_lite/20.1/quartus/libraries/megafunctions/aglobal201.inc     ;         ;
+; lpm_add_sub.inc                  ; yes             ; Megafunction                 ; c:/intelfpga_lite/20.1/quartus/libraries/megafunctions/lpm_add_sub.inc    ;         ;
+; multcore.inc                     ; yes             ; Megafunction                 ; c:/intelfpga_lite/20.1/quartus/libraries/megafunctions/multcore.inc       ;         ;
+; bypassff.inc                     ; yes             ; Megafunction                 ; c:/intelfpga_lite/20.1/quartus/libraries/megafunctions/bypassff.inc       ;         ;
+; altshift.inc                     ; yes             ; Megafunction                 ; c:/intelfpga_lite/20.1/quartus/libraries/megafunctions/altshift.inc       ;         ;
+; multcore.tdf                     ; yes             ; Megafunction                 ; c:/intelfpga_lite/20.1/quartus/libraries/megafunctions/multcore.tdf       ;         ;
+; csa_add.inc                      ; yes             ; Megafunction                 ; c:/intelfpga_lite/20.1/quartus/libraries/megafunctions/csa_add.inc        ;         ;
+; mpar_add.inc                     ; yes             ; Megafunction                 ; c:/intelfpga_lite/20.1/quartus/libraries/megafunctions/mpar_add.inc       ;         ;
+; muleabz.inc                      ; yes             ; Megafunction                 ; c:/intelfpga_lite/20.1/quartus/libraries/megafunctions/muleabz.inc        ;         ;
+; mul_lfrg.inc                     ; yes             ; Megafunction                 ; c:/intelfpga_lite/20.1/quartus/libraries/megafunctions/mul_lfrg.inc       ;         ;
+; mul_boothc.inc                   ; yes             ; Megafunction                 ; c:/intelfpga_lite/20.1/quartus/libraries/megafunctions/mul_boothc.inc     ;         ;
+; alt_ded_mult.inc                 ; yes             ; Megafunction                 ; c:/intelfpga_lite/20.1/quartus/libraries/megafunctions/alt_ded_mult.inc   ;         ;
+; alt_ded_mult_y.inc               ; yes             ; Megafunction                 ; c:/intelfpga_lite/20.1/quartus/libraries/megafunctions/alt_ded_mult_y.inc ;         ;
+; dffpipe.inc                      ; yes             ; Megafunction                 ; c:/intelfpga_lite/20.1/quartus/libraries/megafunctions/dffpipe.inc        ;         ;
+; mpar_add.tdf                     ; yes             ; Megafunction                 ; c:/intelfpga_lite/20.1/quartus/libraries/megafunctions/mpar_add.tdf       ;         ;
+; altshift.tdf                     ; yes             ; Megafunction                 ; c:/intelfpga_lite/20.1/quartus/libraries/megafunctions/altshift.tdf       ;         ;
++----------------------------------+-----------------+------------------------------+---------------------------------------------------------------------------+---------+
+
+
++---------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary             ;
++---------------------------------------------+-----------+
+; Resource                                    ; Usage     ;
++---------------------------------------------+-----------+
+; Estimated Total logic elements              ; 347       ;
+;                                             ;           ;
+; Total combinational functions               ; 329       ;
+; Logic element usage by number of LUT inputs ;           ;
+;     -- 4 input functions                    ; 160       ;
+;     -- 3 input functions                    ; 72        ;
+;     -- <=2 input functions                  ; 97        ;
+;                                             ;           ;
+; Logic elements by mode                      ;           ;
+;     -- normal mode                          ; 250       ;
+;     -- arithmetic mode                      ; 79        ;
+;                                             ;           ;
+; Total registers                             ; 93        ;
+;     -- Dedicated logic registers            ; 93        ;
+;     -- I/O registers                        ; 0         ;
+;                                             ;           ;
+; I/O pins                                    ; 44        ;
+;                                             ;           ;
+; Embedded Multiplier 9-bit elements          ; 0         ;
+;                                             ;           ;
+; Maximum fan-out node                        ; clk~input ;
+; Maximum fan-out                             ; 40        ;
+; Total fan-out                               ; 1355      ;
+; Average fan-out                             ; 2.66      ;
++---------------------------------------------+-----------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                                                                                                                                                                     ;
++--------------------------------------------------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+-------------------------------------------------------------------------------------------------------------------+----------------------------+--------------+
+; Compilation Hierarchy Node                                         ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; UFM Blocks ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; ADC blocks ; Full Hierarchy Name                                                                                               ; Entity Name                ; Library Name ;
++--------------------------------------------------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+-------------------------------------------------------------------------------------------------------------------+----------------------------+--------------+
+; |Calculator                                                        ; 329 (9)             ; 93 (0)                    ; 0           ; 0          ; 0            ; 0       ; 0         ; 44   ; 0            ; 0          ; |Calculator                                                                                                       ; Calculator                 ; work         ;
+;    |AU8:AU8_inst|                                                  ; 26 (0)              ; 24 (0)                    ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |Calculator|AU8:AU8_inst                                                                                          ; AU8                        ; work         ;
+;       |NBitRegister:Register_A|                                    ; 0 (0)               ; 8 (8)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |Calculator|AU8:AU8_inst|NBitRegister:Register_A                                                                  ; NBitRegister               ; work         ;
+;       |NBitRegister:Register_B|                                    ; 0 (0)               ; 8 (8)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |Calculator|AU8:AU8_inst|NBitRegister:Register_B                                                                  ; NBitRegister               ; work         ;
+;       |NBitRegister:Register_R|                                    ; 0 (0)               ; 8 (8)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |Calculator|AU8:AU8_inst|NBitRegister:Register_R                                                                  ; NBitRegister               ; work         ;
+;       |RippleCarryAdderStructural:RippleCarryAdderStructural_inst| ; 26 (7)              ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |Calculator|AU8:AU8_inst|RippleCarryAdderStructural:RippleCarryAdderStructural_inst                               ; RippleCarryAdderStructural ; work         ;
+;          |FAbehav:s0|                                              ; 2 (2)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |Calculator|AU8:AU8_inst|RippleCarryAdderStructural:RippleCarryAdderStructural_inst|FAbehav:s0                    ; FAbehav                    ; work         ;
+;          |FAbehav:s1|                                              ; 2 (2)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |Calculator|AU8:AU8_inst|RippleCarryAdderStructural:RippleCarryAdderStructural_inst|FAbehav:s1                    ; FAbehav                    ; work         ;
+;          |FAbehav:s2|                                              ; 1 (1)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |Calculator|AU8:AU8_inst|RippleCarryAdderStructural:RippleCarryAdderStructural_inst|FAbehav:s2                    ; FAbehav                    ; work         ;
+;          |FAbehav:s3|                                              ; 5 (5)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |Calculator|AU8:AU8_inst|RippleCarryAdderStructural:RippleCarryAdderStructural_inst|FAbehav:s3                    ; FAbehav                    ; work         ;
+;          |FAbehav:s4|                                              ; 2 (2)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |Calculator|AU8:AU8_inst|RippleCarryAdderStructural:RippleCarryAdderStructural_inst|FAbehav:s4                    ; FAbehav                    ; work         ;
+;          |FAbehav:s5|                                              ; 2 (2)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |Calculator|AU8:AU8_inst|RippleCarryAdderStructural:RippleCarryAdderStructural_inst|FAbehav:s5                    ; FAbehav                    ; work         ;
+;          |FAbehav:s6|                                              ; 2 (2)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |Calculator|AU8:AU8_inst|RippleCarryAdderStructural:RippleCarryAdderStructural_inst|FAbehav:s6                    ; FAbehav                    ; work         ;
+;          |FAbehav:s7|                                              ; 3 (3)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |Calculator|AU8:AU8_inst|RippleCarryAdderStructural:RippleCarryAdderStructural_inst|FAbehav:s7                    ; FAbehav                    ; work         ;
+;    |CU8:CU8_inst|                                                  ; 11 (11)             ; 6 (6)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |Calculator|CU8:CU8_inst                                                                                          ; CU8                        ; work         ;
+;    |IU8:IU8_inst|                                                  ; 140 (0)             ; 54 (0)                    ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |Calculator|IU8:IU8_inst                                                                                          ; IU8                        ; work         ;
+;       |BCD2BinarySM:BCD2BinarySM_inst|                             ; 22 (19)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |Calculator|IU8:IU8_inst|BCD2BinarySM:BCD2BinarySM_inst                                                           ; BCD2BinarySM               ; work         ;
+;          |lpm_mult:Mult0|                                          ; 3 (0)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |Calculator|IU8:IU8_inst|BCD2BinarySM:BCD2BinarySM_inst|lpm_mult:Mult0                                            ; lpm_mult                   ; work         ;
+;             |multcore:mult_core|                                   ; 3 (3)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |Calculator|IU8:IU8_inst|BCD2BinarySM:BCD2BinarySM_inst|lpm_mult:Mult0|multcore:mult_core                         ; multcore                   ; work         ;
+;       |SignToTwoC:SignToTwoC_inst|                                 ; 9 (9)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |Calculator|IU8:IU8_inst|SignToTwoC:SignToTwoC_inst                                                               ; SignToTwoC                 ; work         ;
+;       |keypad_input:keypad_input_inst|                             ; 106 (0)             ; 54 (0)                    ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |Calculator|IU8:IU8_inst|keypad_input:keypad_input_inst                                                           ; keypad_input               ; work         ;
+;          |keypad_base:keypad_base|                                 ; 106 (2)             ; 41 (0)                    ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |Calculator|IU8:IU8_inst|keypad_input:keypad_input_inst|keypad_base:keypad_base                                   ; keypad_base                ; work         ;
+;             |clock_div:keypad_clock_divider|                       ; 50 (50)             ; 33 (33)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |Calculator|IU8:IU8_inst|keypad_input:keypad_input_inst|keypad_base:keypad_base|clock_div:keypad_clock_divider    ; clock_div                  ; work         ;
+;             |keypad_decoder:keypad_key_decoder|                    ; 38 (38)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |Calculator|IU8:IU8_inst|keypad_input:keypad_input_inst|keypad_base:keypad_base|keypad_decoder:keypad_key_decoder ; keypad_decoder             ; work         ;
+;             |keypad_fsm:keypad_fsm|                                ; 16 (16)             ; 8 (8)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |Calculator|IU8:IU8_inst|keypad_input:keypad_input_inst|keypad_base:keypad_base|keypad_fsm:keypad_fsm             ; keypad_fsm                 ; work         ;
+;          |shift_reg:shift_reg|                                     ; 0 (0)               ; 13 (13)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |Calculator|IU8:IU8_inst|keypad_input:keypad_input_inst|shift_reg:shift_reg                                       ; shift_reg                  ; work         ;
+;       |validity_checker:validity_checker_inst|                     ; 3 (3)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |Calculator|IU8:IU8_inst|validity_checker:validity_checker_inst                                                   ; validity_checker           ; work         ;
+;    |OU8:OU8_inst|                                                  ; 74 (0)              ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |Calculator|OU8:OU8_inst                                                                                          ; OU8                        ; work         ;
+;       |TwoCToSign:TwoCToSign_inst|                                 ; 8 (3)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |Calculator|OU8:OU8_inst|TwoCToSign:TwoCToSign_inst                                                               ; TwoCToSign                 ; work         ;
+;          |halfADDER:twosFor[1].halfADDER_inst1|                    ; 1 (1)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |Calculator|OU8:OU8_inst|TwoCToSign:TwoCToSign_inst|halfADDER:twosFor[1].halfADDER_inst1                          ; halfADDER                  ; work         ;
+;          |halfADDER:twosFor[2].halfADDER_inst1|                    ; 2 (2)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |Calculator|OU8:OU8_inst|TwoCToSign:TwoCToSign_inst|halfADDER:twosFor[2].halfADDER_inst1                          ; halfADDER                  ; work         ;
+;          |halfADDER:twosFor[3].halfADDER_inst1|                    ; 2 (2)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |Calculator|OU8:OU8_inst|TwoCToSign:TwoCToSign_inst|halfADDER:twosFor[3].halfADDER_inst1                          ; halfADDER                  ; work         ;
+;       |binary2bcd:binary2bcd_inst|                                 ; 23 (0)              ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |Calculator|OU8:OU8_inst|binary2bcd:binary2bcd_inst                                                               ; binary2bcd                 ; work         ;
+;          |add3:m2|                                                 ; 11 (11)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |Calculator|OU8:OU8_inst|binary2bcd:binary2bcd_inst|add3:m2                                                       ; add3                       ; work         ;
+;          |add3:m3|                                                 ; 4 (4)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |Calculator|OU8:OU8_inst|binary2bcd:binary2bcd_inst|add3:m3                                                       ; add3                       ; work         ;
+;          |add3:m4|                                                 ; 4 (4)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |Calculator|OU8:OU8_inst|binary2bcd:binary2bcd_inst|add3:m4                                                       ; add3                       ; work         ;
+;          |add3:m5|                                                 ; 4 (4)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |Calculator|OU8:OU8_inst|binary2bcd:binary2bcd_inst|add3:m5                                                       ; add3                       ; work         ;
+;       |displayNegative:displayNegative_inst|                       ; 3 (3)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |Calculator|OU8:OU8_inst|displayNegative:displayNegative_inst                                                     ; displayNegative            ; work         ;
+;       |four2seven:ONE|                                             ; 7 (7)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |Calculator|OU8:OU8_inst|four2seven:ONE                                                                           ; four2seven                 ; work         ;
+;       |four2sevenHun:four2sevenHun_inst|                           ; 10 (10)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |Calculator|OU8:OU8_inst|four2sevenHun:four2sevenHun_inst                                                         ; four2sevenHun              ; work         ;
+;       |four2sevenTen:four2sevenTen_inst|                           ; 23 (23)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |Calculator|OU8:OU8_inst|four2sevenTen:four2sevenTen_inst                                                         ; four2sevenTen              ; work         ;
+;    |keypad_input:keypad_input_inst|                                ; 69 (0)              ; 9 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |Calculator|keypad_input:keypad_input_inst                                                                        ; keypad_input               ; work         ;
+;       |keypad_base:keypad_base|                                    ; 69 (0)              ; 9 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |Calculator|keypad_input:keypad_input_inst|keypad_base:keypad_base                                                ; keypad_base                ; work         ;
+;          |clock_div:keypad_clock_divider|                          ; 42 (42)             ; 1 (1)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |Calculator|keypad_input:keypad_input_inst|keypad_base:keypad_base|clock_div:keypad_clock_divider                 ; clock_div                  ; work         ;
+;          |keypad_decoder:keypad_key_decoder|                       ; 13 (13)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |Calculator|keypad_input:keypad_input_inst|keypad_base:keypad_base|keypad_decoder:keypad_key_decoder              ; keypad_decoder             ; work         ;
+;          |keypad_fsm:keypad_fsm|                                   ; 14 (14)             ; 8 (8)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |Calculator|keypad_input:keypad_input_inst|keypad_base:keypad_base|keypad_fsm:keypad_fsm                          ; keypad_fsm                 ; work         ;
++--------------------------------------------------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+-------------------------------------------------------------------------------------------------------------------+----------------------------+--------------+
+Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
+Encoding Type:  One-Hot
++-----------------------------------------------------------------+
+; State Machine - |Calculator|CU8:CU8_inst|state                  ;
++----------+----------+----------+----------+----------+----------+
+; Name     ; state.S3 ; state.S2 ; state.S1 ; state.S0 ; state.S4 ;
++----------+----------+----------+----------+----------+----------+
+; state.S0 ; 0        ; 0        ; 0        ; 0        ; 0        ;
+; state.S1 ; 0        ; 0        ; 1        ; 1        ; 0        ;
+; state.S2 ; 0        ; 1        ; 0        ; 1        ; 0        ;
+; state.S3 ; 1        ; 0        ; 0        ; 1        ; 0        ;
+; state.S4 ; 0        ; 0        ; 0        ; 1        ; 1        ;
++----------+----------+----------+----------+----------+----------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                                                                                                                                                                         ;
++-------------------------------------------------------------------------------------------------+--------------------------------------------------------------------------------------------------------------------------+
+; Register name                                                                                   ; Reason for Removal                                                                                                       ;
++-------------------------------------------------------------------------------------------------+--------------------------------------------------------------------------------------------------------------------------+
+; IU8:IU8_inst|keypad_input:keypad_input_inst|shift_reg:shift_reg|out[12..14]                     ; Lost fanout                                                                                                              ;
+; keypad_input:keypad_input_inst|keypad_base:keypad_base|clock_div:keypad_clock_divider|r_reg[31] ; Merged with IU8:IU8_inst|keypad_input:keypad_input_inst|keypad_base:keypad_base|clock_div:keypad_clock_divider|r_reg[31] ;
+; keypad_input:keypad_input_inst|keypad_base:keypad_base|clock_div:keypad_clock_divider|r_reg[30] ; Merged with IU8:IU8_inst|keypad_input:keypad_input_inst|keypad_base:keypad_base|clock_div:keypad_clock_divider|r_reg[30] ;
+; keypad_input:keypad_input_inst|keypad_base:keypad_base|clock_div:keypad_clock_divider|r_reg[29] ; Merged with IU8:IU8_inst|keypad_input:keypad_input_inst|keypad_base:keypad_base|clock_div:keypad_clock_divider|r_reg[29] ;
+; keypad_input:keypad_input_inst|keypad_base:keypad_base|clock_div:keypad_clock_divider|r_reg[28] ; Merged with IU8:IU8_inst|keypad_input:keypad_input_inst|keypad_base:keypad_base|clock_div:keypad_clock_divider|r_reg[28] ;
+; keypad_input:keypad_input_inst|keypad_base:keypad_base|clock_div:keypad_clock_divider|r_reg[27] ; Merged with IU8:IU8_inst|keypad_input:keypad_input_inst|keypad_base:keypad_base|clock_div:keypad_clock_divider|r_reg[27] ;
+; keypad_input:keypad_input_inst|keypad_base:keypad_base|clock_div:keypad_clock_divider|r_reg[26] ; Merged with IU8:IU8_inst|keypad_input:keypad_input_inst|keypad_base:keypad_base|clock_div:keypad_clock_divider|r_reg[26] ;
+; keypad_input:keypad_input_inst|keypad_base:keypad_base|clock_div:keypad_clock_divider|r_reg[25] ; Merged with IU8:IU8_inst|keypad_input:keypad_input_inst|keypad_base:keypad_base|clock_div:keypad_clock_divider|r_reg[25] ;
+; keypad_input:keypad_input_inst|keypad_base:keypad_base|clock_div:keypad_clock_divider|r_reg[24] ; Merged with IU8:IU8_inst|keypad_input:keypad_input_inst|keypad_base:keypad_base|clock_div:keypad_clock_divider|r_reg[24] ;
+; keypad_input:keypad_input_inst|keypad_base:keypad_base|clock_div:keypad_clock_divider|r_reg[23] ; Merged with IU8:IU8_inst|keypad_input:keypad_input_inst|keypad_base:keypad_base|clock_div:keypad_clock_divider|r_reg[23] ;
+; keypad_input:keypad_input_inst|keypad_base:keypad_base|clock_div:keypad_clock_divider|r_reg[22] ; Merged with IU8:IU8_inst|keypad_input:keypad_input_inst|keypad_base:keypad_base|clock_div:keypad_clock_divider|r_reg[22] ;
+; keypad_input:keypad_input_inst|keypad_base:keypad_base|clock_div:keypad_clock_divider|r_reg[21] ; Merged with IU8:IU8_inst|keypad_input:keypad_input_inst|keypad_base:keypad_base|clock_div:keypad_clock_divider|r_reg[21] ;
+; keypad_input:keypad_input_inst|keypad_base:keypad_base|clock_div:keypad_clock_divider|r_reg[20] ; Merged with IU8:IU8_inst|keypad_input:keypad_input_inst|keypad_base:keypad_base|clock_div:keypad_clock_divider|r_reg[20] ;
+; keypad_input:keypad_input_inst|keypad_base:keypad_base|clock_div:keypad_clock_divider|r_reg[19] ; Merged with IU8:IU8_inst|keypad_input:keypad_input_inst|keypad_base:keypad_base|clock_div:keypad_clock_divider|r_reg[19] ;
+; keypad_input:keypad_input_inst|keypad_base:keypad_base|clock_div:keypad_clock_divider|r_reg[18] ; Merged with IU8:IU8_inst|keypad_input:keypad_input_inst|keypad_base:keypad_base|clock_div:keypad_clock_divider|r_reg[18] ;
+; keypad_input:keypad_input_inst|keypad_base:keypad_base|clock_div:keypad_clock_divider|r_reg[17] ; Merged with IU8:IU8_inst|keypad_input:keypad_input_inst|keypad_base:keypad_base|clock_div:keypad_clock_divider|r_reg[17] ;
+; keypad_input:keypad_input_inst|keypad_base:keypad_base|clock_div:keypad_clock_divider|r_reg[16] ; Merged with IU8:IU8_inst|keypad_input:keypad_input_inst|keypad_base:keypad_base|clock_div:keypad_clock_divider|r_reg[16] ;
+; keypad_input:keypad_input_inst|keypad_base:keypad_base|clock_div:keypad_clock_divider|r_reg[15] ; Merged with IU8:IU8_inst|keypad_input:keypad_input_inst|keypad_base:keypad_base|clock_div:keypad_clock_divider|r_reg[15] ;
+; keypad_input:keypad_input_inst|keypad_base:keypad_base|clock_div:keypad_clock_divider|r_reg[14] ; Merged with IU8:IU8_inst|keypad_input:keypad_input_inst|keypad_base:keypad_base|clock_div:keypad_clock_divider|r_reg[14] ;
+; keypad_input:keypad_input_inst|keypad_base:keypad_base|clock_div:keypad_clock_divider|r_reg[13] ; Merged with IU8:IU8_inst|keypad_input:keypad_input_inst|keypad_base:keypad_base|clock_div:keypad_clock_divider|r_reg[13] ;
+; keypad_input:keypad_input_inst|keypad_base:keypad_base|clock_div:keypad_clock_divider|r_reg[12] ; Merged with IU8:IU8_inst|keypad_input:keypad_input_inst|keypad_base:keypad_base|clock_div:keypad_clock_divider|r_reg[12] ;
+; keypad_input:keypad_input_inst|keypad_base:keypad_base|clock_div:keypad_clock_divider|r_reg[11] ; Merged with IU8:IU8_inst|keypad_input:keypad_input_inst|keypad_base:keypad_base|clock_div:keypad_clock_divider|r_reg[11] ;
+; keypad_input:keypad_input_inst|keypad_base:keypad_base|clock_div:keypad_clock_divider|r_reg[10] ; Merged with IU8:IU8_inst|keypad_input:keypad_input_inst|keypad_base:keypad_base|clock_div:keypad_clock_divider|r_reg[10] ;
+; keypad_input:keypad_input_inst|keypad_base:keypad_base|clock_div:keypad_clock_divider|r_reg[9]  ; Merged with IU8:IU8_inst|keypad_input:keypad_input_inst|keypad_base:keypad_base|clock_div:keypad_clock_divider|r_reg[9]  ;
+; keypad_input:keypad_input_inst|keypad_base:keypad_base|clock_div:keypad_clock_divider|r_reg[8]  ; Merged with IU8:IU8_inst|keypad_input:keypad_input_inst|keypad_base:keypad_base|clock_div:keypad_clock_divider|r_reg[8]  ;
+; keypad_input:keypad_input_inst|keypad_base:keypad_base|clock_div:keypad_clock_divider|r_reg[7]  ; Merged with IU8:IU8_inst|keypad_input:keypad_input_inst|keypad_base:keypad_base|clock_div:keypad_clock_divider|r_reg[7]  ;
+; keypad_input:keypad_input_inst|keypad_base:keypad_base|clock_div:keypad_clock_divider|r_reg[6]  ; Merged with IU8:IU8_inst|keypad_input:keypad_input_inst|keypad_base:keypad_base|clock_div:keypad_clock_divider|r_reg[6]  ;
+; keypad_input:keypad_input_inst|keypad_base:keypad_base|clock_div:keypad_clock_divider|r_reg[5]  ; Merged with IU8:IU8_inst|keypad_input:keypad_input_inst|keypad_base:keypad_base|clock_div:keypad_clock_divider|r_reg[5]  ;
+; keypad_input:keypad_input_inst|keypad_base:keypad_base|clock_div:keypad_clock_divider|r_reg[4]  ; Merged with IU8:IU8_inst|keypad_input:keypad_input_inst|keypad_base:keypad_base|clock_div:keypad_clock_divider|r_reg[4]  ;
+; keypad_input:keypad_input_inst|keypad_base:keypad_base|clock_div:keypad_clock_divider|r_reg[3]  ; Merged with IU8:IU8_inst|keypad_input:keypad_input_inst|keypad_base:keypad_base|clock_div:keypad_clock_divider|r_reg[3]  ;
+; keypad_input:keypad_input_inst|keypad_base:keypad_base|clock_div:keypad_clock_divider|r_reg[2]  ; Merged with IU8:IU8_inst|keypad_input:keypad_input_inst|keypad_base:keypad_base|clock_div:keypad_clock_divider|r_reg[2]  ;
+; keypad_input:keypad_input_inst|keypad_base:keypad_base|clock_div:keypad_clock_divider|r_reg[1]  ; Merged with IU8:IU8_inst|keypad_input:keypad_input_inst|keypad_base:keypad_base|clock_div:keypad_clock_divider|r_reg[1]  ;
+; keypad_input:keypad_input_inst|keypad_base:keypad_base|clock_div:keypad_clock_divider|r_reg[0]  ; Merged with IU8:IU8_inst|keypad_input:keypad_input_inst|keypad_base:keypad_base|clock_div:keypad_clock_divider|r_reg[0]  ;
+; CU8:CU8_inst|state~5                                                                            ; Lost fanout                                                                                                              ;
+; CU8:CU8_inst|state~6                                                                            ; Lost fanout                                                                                                              ;
+; Total Number of Removed Registers = 37                                                          ;                                                                                                                          ;
++-------------------------------------------------------------------------------------------------+--------------------------------------------------------------------------------------------------------------------------+
+
+
++------------------------------------------------------+
+; General Register Statistics                          ;
++----------------------------------------------+-------+
+; Statistic                                    ; Value ;
++----------------------------------------------+-------+
+; Total registers                              ; 93    ;
+; Number of registers using Synchronous Clear  ; 1     ;
+; Number of registers using Synchronous Load   ; 0     ;
+; Number of registers using Asynchronous Clear ; 42    ;
+; Number of registers using Asynchronous Load  ; 0     ;
+; Number of registers using Clock Enable       ; 8     ;
+; Number of registers using Preset             ; 0     ;
++----------------------------------------------+-------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                                                                                             ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------------------------------------------------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                                                                                   ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------------------------------------------------------------------------------+
+; 16:1               ; 4 bits    ; 40 LEs        ; 12 LEs               ; 28 LEs                 ; Yes        ; |Calculator|IU8:IU8_inst|keypad_input:keypad_input_inst|keypad_base:keypad_base|keypad_fsm:keypad_fsm|col[1] ;
+; 16:1               ; 4 bits    ; 40 LEs        ; 12 LEs               ; 28 LEs                 ; Yes        ; |Calculator|keypad_input:keypad_input_inst|keypad_base:keypad_base|keypad_fsm:keypad_fsm|col[3]              ;
+; 3:1                ; 7 bits    ; 14 LEs        ; 14 LEs               ; 0 LEs                  ; No         ; |Calculator|OU8:OU8_inst|four2sevenTen:four2sevenTen_inst|HEX[4]                                             ;
+; 3:1                ; 3 bits    ; 6 LEs         ; 3 LEs                ; 3 LEs                  ; No         ; |Calculator|CU8:CU8_inst|state                                                                               ;
+; 7:1                ; 2 bits    ; 8 LEs         ; 6 LEs                ; 2 LEs                  ; No         ; |Calculator|CU8:CU8_inst|Selector1                                                                           ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------------------------------------------------------------------------------+
+
+
++-----------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: keypad_input:keypad_input_inst ;
++----------------+-------+----------------------------------------------------+
+; Parameter Name ; Value ; Type                                               ;
++----------------+-------+----------------------------------------------------+
+; DIGITS         ; 4     ; Signed Integer                                     ;
++----------------+-------+----------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: keypad_input:keypad_input_inst|keypad_base:keypad_base|clock_div:keypad_clock_divider ;
++----------------+--------+----------------------------------------------------------------------------------------------------------+
+; Parameter Name ; Value  ; Type                                                                                                     ;
++----------------+--------+----------------------------------------------------------------------------------------------------------+
+; WIDTH          ; 32     ; Signed Integer                                                                                           ;
+; DIV            ; 100000 ; Signed Integer                                                                                           ;
++----------------+--------+----------------------------------------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: keypad_input:keypad_input_inst|keypad_base:keypad_base|keypad_decoder:keypad_key_decoder ;
++----------------+-------+--------------------------------------------------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                                                                         ;
++----------------+-------+--------------------------------------------------------------------------------------------------------------+
+; BASE           ; 10    ; Signed Integer                                                                                               ;
++----------------+-------+--------------------------------------------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: keypad_input:keypad_input_inst|shift_reg:shift_reg ;
++----------------+-------+------------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                                   ;
++----------------+-------+------------------------------------------------------------------------+
+; COUNT          ; 4     ; Signed Integer                                                         ;
+; WIDTH          ; 4     ; Signed Integer                                                         ;
++----------------+-------+------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------------+
+; Parameter Settings for User Entity Instance: CU8:CU8_inst ;
++----------------+-------+----------------------------------+
+; Parameter Name ; Value ; Type                             ;
++----------------+-------+----------------------------------+
+; enter          ; 1111  ; Unsigned Binary                  ;
+; add            ; 1010  ; Unsigned Binary                  ;
+; subtract       ; 1011  ; Unsigned Binary                  ;
++----------------+-------+----------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------------+
+; Parameter Settings for User Entity Instance: IU8:IU8_inst ;
++----------------+-------+----------------------------------+
+; Parameter Name ; Value ; Type                             ;
++----------------+-------+----------------------------------+
+; DIGITS         ; 4     ; Signed Integer                   ;
+; N              ; 8     ; Signed Integer                   ;
++----------------+-------+----------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: IU8:IU8_inst|keypad_input:keypad_input_inst ;
++----------------+-------+-----------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                            ;
++----------------+-------+-----------------------------------------------------------------+
+; DIGITS         ; 4     ; Signed Integer                                                  ;
++----------------+-------+-----------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: IU8:IU8_inst|keypad_input:keypad_input_inst|keypad_base:keypad_base|clock_div:keypad_clock_divider ;
++----------------+--------+-----------------------------------------------------------------------------------------------------------------------+
+; Parameter Name ; Value  ; Type                                                                                                                  ;
++----------------+--------+-----------------------------------------------------------------------------------------------------------------------+
+; WIDTH          ; 32     ; Signed Integer                                                                                                        ;
+; DIV            ; 100000 ; Signed Integer                                                                                                        ;
++----------------+--------+-----------------------------------------------------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: IU8:IU8_inst|keypad_input:keypad_input_inst|keypad_base:keypad_base|keypad_decoder:keypad_key_decoder ;
++----------------+-------+---------------------------------------------------------------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                                                                                      ;
++----------------+-------+---------------------------------------------------------------------------------------------------------------------------+
+; BASE           ; 10    ; Signed Integer                                                                                                            ;
++----------------+-------+---------------------------------------------------------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: IU8:IU8_inst|keypad_input:keypad_input_inst|shift_reg:shift_reg ;
++----------------+-------+-------------------------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                                                ;
++----------------+-------+-------------------------------------------------------------------------------------+
+; COUNT          ; 4     ; Signed Integer                                                                      ;
+; WIDTH          ; 4     ; Signed Integer                                                                      ;
++----------------+-------+-------------------------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: IU8:IU8_inst|BCD2BinarySM:BCD2BinarySM_inst ;
++----------------+-------+-----------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                            ;
++----------------+-------+-----------------------------------------------------------------+
+; N              ; 8     ; Signed Integer                                                  ;
++----------------+-------+-----------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: IU8:IU8_inst|SignToTwoC:SignToTwoC_inst ;
++----------------+-------+-------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                        ;
++----------------+-------+-------------------------------------------------------------+
+; N              ; 8     ; Signed Integer                                              ;
++----------------+-------+-------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: AU8:AU8_inst|NBitRegister:Register_A ;
++----------------+-------+----------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                     ;
++----------------+-------+----------------------------------------------------------+
+; N              ; 8     ; Signed Integer                                           ;
++----------------+-------+----------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: AU8:AU8_inst|NBitRegister:Register_B ;
++----------------+-------+----------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                     ;
++----------------+-------+----------------------------------------------------------+
+; N              ; 8     ; Signed Integer                                           ;
++----------------+-------+----------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: AU8:AU8_inst|NBitRegister:Register_R ;
++----------------+-------+----------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                     ;
++----------------+-------+----------------------------------------------------------+
+; N              ; 8     ; Signed Integer                                           ;
++----------------+-------+----------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: OU8:OU8_inst|TwoCToSign:TwoCToSign_inst ;
++----------------+-------+-------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                        ;
++----------------+-------+-------------------------------------------------------------+
+; N              ; 8     ; Signed Integer                                              ;
++----------------+-------+-------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: IU8:IU8_inst|BCD2BinarySM:BCD2BinarySM_inst|lpm_mult:Mult0 ;
++------------------------------------------------+----------+-------------------------------------------------+
+; Parameter Name                                 ; Value    ; Type                                            ;
++------------------------------------------------+----------+-------------------------------------------------+
+; AUTO_CARRY_CHAINS                              ; ON       ; AUTO_CARRY                                      ;
+; IGNORE_CARRY_BUFFERS                           ; OFF      ; IGNORE_CARRY                                    ;
+; AUTO_CASCADE_CHAINS                            ; ON       ; AUTO_CASCADE                                    ;
+; IGNORE_CASCADE_BUFFERS                         ; OFF      ; IGNORE_CASCADE                                  ;
+; LPM_WIDTHA                                     ; 4        ; Untyped                                         ;
+; LPM_WIDTHB                                     ; 7        ; Untyped                                         ;
+; LPM_WIDTHP                                     ; 11       ; Untyped                                         ;
+; LPM_WIDTHR                                     ; 11       ; Untyped                                         ;
+; LPM_WIDTHS                                     ; 1        ; Untyped                                         ;
+; LPM_REPRESENTATION                             ; UNSIGNED ; Untyped                                         ;
+; LPM_PIPELINE                                   ; 0        ; Untyped                                         ;
+; LATENCY                                        ; 0        ; Untyped                                         ;
+; INPUT_A_IS_CONSTANT                            ; NO       ; Untyped                                         ;
+; INPUT_B_IS_CONSTANT                            ; YES      ; Untyped                                         ;
+; USE_EAB                                        ; OFF      ; Untyped                                         ;
+; MAXIMIZE_SPEED                                 ; 5        ; Untyped                                         ;
+; DEVICE_FAMILY                                  ; MAX 10   ; Untyped                                         ;
+; CARRY_CHAIN                                    ; MANUAL   ; Untyped                                         ;
+; APEX20K_TECHNOLOGY_MAPPER                      ; LUT      ; TECH_MAPPER_APEX20K                             ;
+; DEDICATED_MULTIPLIER_CIRCUITRY                 ; AUTO     ; Untyped                                         ;
+; DEDICATED_MULTIPLIER_MIN_INPUT_WIDTH_FOR_AUTO  ; 0        ; Untyped                                         ;
+; DEDICATED_MULTIPLIER_MIN_OUTPUT_WIDTH_FOR_AUTO ; 0        ; Untyped                                         ;
+; CBXI_PARAMETER                                 ; NOTHING  ; Untyped                                         ;
+; INPUT_A_FIXED_VALUE                            ; Bx       ; Untyped                                         ;
+; INPUT_B_FIXED_VALUE                            ; Bx       ; Untyped                                         ;
+; USE_AHDL_IMPLEMENTATION                        ; OFF      ; Untyped                                         ;
++------------------------------------------------+----------+-------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------------------------------------------------+
+; lpm_mult Parameter Settings by Entity Instance                                                     ;
++---------------------------------------+------------------------------------------------------------+
+; Name                                  ; Value                                                      ;
++---------------------------------------+------------------------------------------------------------+
+; Number of entity instances            ; 1                                                          ;
+; Entity Instance                       ; IU8:IU8_inst|BCD2BinarySM:BCD2BinarySM_inst|lpm_mult:Mult0 ;
+;     -- LPM_WIDTHA                     ; 4                                                          ;
+;     -- LPM_WIDTHB                     ; 7                                                          ;
+;     -- LPM_WIDTHP                     ; 11                                                         ;
+;     -- LPM_REPRESENTATION             ; UNSIGNED                                                   ;
+;     -- INPUT_A_IS_CONSTANT            ; NO                                                         ;
+;     -- INPUT_B_IS_CONSTANT            ; YES                                                        ;
+;     -- USE_EAB                        ; OFF                                                        ;
+;     -- DEDICATED_MULTIPLIER_CIRCUITRY ; AUTO                                                       ;
+;     -- INPUT_A_FIXED_VALUE            ; Bx                                                         ;
+;     -- INPUT_B_FIXED_VALUE            ; Bx                                                         ;
++---------------------------------------+------------------------------------------------------------+
+
+
++-----------------------------------------------------------------------------+
+; Port Connectivity Checks: "OU8:OU8_inst|binary2bcd:binary2bcd_inst|add3:m6" ;
++-------+-------+----------+--------------------------------------------------+
+; Port  ; Type  ; Severity ; Details                                          ;
++-------+-------+----------+--------------------------------------------------+
+; in[3] ; Input ; Info     ; Stuck at GND                                     ;
++-------+-------+----------+--------------------------------------------------+
+
+
++-----------------------------------------------------------------------------+
+; Port Connectivity Checks: "OU8:OU8_inst|binary2bcd:binary2bcd_inst|add3:m1" ;
++-------+-------+----------+--------------------------------------------------+
+; Port  ; Type  ; Severity ; Details                                          ;
++-------+-------+----------+--------------------------------------------------+
+; in[3] ; Input ; Info     ; Stuck at GND                                     ;
++-------+-------+----------+--------------------------------------------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "OU8:OU8_inst|binary2bcd:binary2bcd_inst"                                                                                                                                  ;
++----------+--------+----------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port     ; Type   ; Severity ; Details                                                                                                                                                               ;
++----------+--------+----------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; HUNDREDS ; Output ; Warning  ; Output or bidir port (2 bits) is smaller than the port expression (4 bits) it drives.  The 2 most-significant bit(s) in the port expression will be connected to GND. ;
++----------+--------+----------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+
+
++----------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "OU8:OU8_inst|TwoCToSign:TwoCToSign_inst|halfADDER:twosFor[7].halfADDER_inst1"       ;
++------+--------+----------+-------------------------------------------------------------------------------------+
+; Port ; Type   ; Severity ; Details                                                                             ;
++------+--------+----------+-------------------------------------------------------------------------------------+
+; cout ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; a    ; Input  ; Info     ; Stuck at GND                                                                        ;
++------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "AU8:AU8_inst|four2seven:LSB"                                                                                           ;
++------+--------+----------+------------------------------------------------------------------------------------------------------------------------+
+; Port ; Type   ; Severity ; Details                                                                                                                ;
++------+--------+----------+------------------------------------------------------------------------------------------------------------------------+
+; HEX  ; Output ; Warning  ; Output or bidir port (7 bits) is wider than the port expression (1 bits) it drives; bit(s) "HEX[0..5]" have no fanouts ;
+; HEX  ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed.                                    ;
++------+--------+----------+------------------------------------------------------------------------------------------------------------------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "AU8:AU8_inst|four2seven:MSB"                                                                                           ;
++------+--------+----------+------------------------------------------------------------------------------------------------------------------------+
+; Port ; Type   ; Severity ; Details                                                                                                                ;
++------+--------+----------+------------------------------------------------------------------------------------------------------------------------+
+; HEX  ; Output ; Warning  ; Output or bidir port (7 bits) is wider than the port expression (1 bits) it drives; bit(s) "HEX[0..5]" have no fanouts ;
+; HEX  ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed.                                    ;
++------+--------+----------+------------------------------------------------------------------------------------------------------------------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "IU8:IU8_inst|keypad_input:keypad_input_inst"                                                                                                                              ;
++----------+--------+----------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port     ; Type   ; Severity ; Details                                                                                                                                                               ;
++----------+--------+----------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; value    ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed.                                                                                   ;
+; trig     ; Output ; Warning  ; Output or bidir port (1 bits) is smaller than the port expression (4 bits) it drives.  The 3 most-significant bit(s) in the port expression will be connected to GND. ;
+; trig[-1] ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed.                                                                                   ;
++----------+--------+----------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "keypad_input:keypad_input_inst|shift_reg:shift_reg"                                                                                         ;
++------+-------+----------+----------------------------------------------------------------------------------------------------------------------------------------------+
+; Port ; Type  ; Severity ; Details                                                                                                                                      ;
++------+-------+----------+----------------------------------------------------------------------------------------------------------------------------------------------+
+; dir  ; Input ; Warning  ; Declared by entity but not connected by instance. If a default value exists, it will be used.  Otherwise, the port will be connected to GND. ;
++------+-------+----------+----------------------------------------------------------------------------------------------------------------------------------------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "keypad_input:keypad_input_inst|keypad_base:keypad_base|keypad_fsm:keypad_fsm"                             ;
++-------+--------+----------+----------------------------------------------------------------------------------------------------------+
+; Port  ; Type   ; Severity ; Details                                                                                                  ;
++-------+--------+----------+----------------------------------------------------------------------------------------------------------+
+; state ; Output ; Warning  ; Declared by entity but not connected by instance. Logic that only feeds a dangling port will be removed. ;
+; trig  ; Output ; Warning  ; Declared by entity but not connected by instance. Logic that only feeds a dangling port will be removed. ;
++-------+--------+----------+----------------------------------------------------------------------------------------------------------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "keypad_input:keypad_input_inst|keypad_base:keypad_base|clock_div:keypad_clock_divider"                                                       ;
++-------+-------+----------+----------------------------------------------------------------------------------------------------------------------------------------------+
+; Port  ; Type  ; Severity ; Details                                                                                                                                      ;
++-------+-------+----------+----------------------------------------------------------------------------------------------------------------------------------------------+
+; reset ; Input ; Warning  ; Declared by entity but not connected by instance. If a default value exists, it will be used.  Otherwise, the port will be connected to GND. ;
++-------+-------+----------+----------------------------------------------------------------------------------------------------------------------------------------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "keypad_input:keypad_input_inst|keypad_base:keypad_base"                                                         ;
++-------------+--------+----------+----------------------------------------------------------------------------------------------------------+
+; Port        ; Type   ; Severity ; Details                                                                                                  ;
++-------------+--------+----------+----------------------------------------------------------------------------------------------------------+
+; slow_clock  ; Output ; Warning  ; Declared by entity but not connected by instance. Logic that only feeds a dangling port will be removed. ;
+; sense       ; Output ; Warning  ; Declared by entity but not connected by instance. Logic that only feeds a dangling port will be removed. ;
+; valid_digit ; Output ; Warning  ; Declared by entity but not connected by instance. Logic that only feeds a dangling port will be removed. ;
+; inv_row     ; Output ; Warning  ; Declared by entity but not connected by instance. Logic that only feeds a dangling port will be removed. ;
++-------------+--------+----------+----------------------------------------------------------------------------------------------------------+
+
+
++----------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "keypad_input:keypad_input_inst"                                                     ;
++------+--------+----------+-------------------------------------------------------------------------------------+
+; Port ; Type   ; Severity ; Details                                                                             ;
++------+--------+----------+-------------------------------------------------------------------------------------+
+; col  ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; out  ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; trig ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++-----------------------------------------------------+
+; Post-Synthesis Netlist Statistics for Top Partition ;
++-----------------------+-----------------------------+
+; Type                  ; Count                       ;
++-----------------------+-----------------------------+
+; boundary_port         ; 44                          ;
+; cycloneiii_ff         ; 93                          ;
+;     CLR               ; 41                          ;
+;     CLR SCLR          ; 1                           ;
+;     ENA               ; 8                           ;
+;     plain             ; 43                          ;
+; cycloneiii_lcell_comb ; 335                         ;
+;     arith             ; 79                          ;
+;         2 data inputs ; 63                          ;
+;         3 data inputs ; 16                          ;
+;     normal            ; 256                         ;
+;         0 data inputs ; 1                           ;
+;         1 data inputs ; 9                           ;
+;         2 data inputs ; 30                          ;
+;         3 data inputs ; 56                          ;
+;         4 data inputs ; 160                         ;
+;                       ;                             ;
+; Max LUT depth         ; 18.70                       ;
+; Average LUT depth     ; 9.37                        ;
++-----------------------+-----------------------------+
+
+
++-------------------------------+
+; Elapsed Time Per Partition    ;
++----------------+--------------+
+; Partition Name ; Elapsed Time ;
++----------------+--------------+
+; Top            ; 00:00:01     ;
++----------------+--------------+
+
+
++-------------------------------+
+; Analysis & Synthesis Messages ;
++-------------------------------+
+Info: *******************************************************************
+Info: Running Quartus Prime Analysis & Synthesis
+    Info: Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
+    Info: Processing started: Mon Apr 29 15:01:47 2024
+Info: Command: quartus_map --read_settings_files=on --write_settings_files=off Calculator -c Calculator
+Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
+Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
+Info (12021): Found 1 design units, including 1 entities, in source file calculator.v
+    Info (12023): Found entity 1: Calculator File: D:/MyCSE2441Labs/Term_Project/Calculator/Calculator.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file /mycse2441labs/term_project/ou/ou8.v
+    Info (12023): Found entity 1: OU8 File: D:/MyCSE2441Labs/Term_Project/OU/OU8.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file /mycse2441labs/term_project/iu/iu8.v
+    Info (12023): Found entity 1: IU8 File: D:/MyCSE2441Labs/Term_Project/IU/IU8.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file /mycse2441labs/term_project/au/au8.v
+    Info (12023): Found entity 1: AU8 File: D:/MyCSE2441Labs/Term_Project/AU/AU8.v Line: 2
+Warning (12090): Entity "MUX" obtained from "MUX.v" instead of from Quartus Prime megafunction library File: D:/MyCSE2441Labs/Term_Project/Calculator/MUX.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file mux.v
+    Info (12023): Found entity 1: MUX File: D:/MyCSE2441Labs/Term_Project/Calculator/MUX.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file /mycse2441labs/term_project/ou/four2seventen.v
+    Info (12023): Found entity 1: four2sevenTen File: D:/MyCSE2441Labs/Term_Project/OU/four2sevenTen.v Line: 2
+Info (12021): Found 1 design units, including 1 entities, in source file /mycse2441labs/term_project/ou/four2sevenhun.v
+    Info (12023): Found entity 1: four2sevenHun File: D:/MyCSE2441Labs/Term_Project/OU/four2sevenHun.v Line: 2
+Info (12021): Found 1 design units, including 1 entities, in source file auchain.v
+    Info (12023): Found entity 1: AUChain File: D:/MyCSE2441Labs/Term_Project/Calculator/AUChain.v Line: 1
+Warning (10236): Verilog HDL Implicit Net warning at AU8.v(63): created implicit net for "HEX1" File: D:/MyCSE2441Labs/Term_Project/AU/AU8.v Line: 63
+Warning (10236): Verilog HDL Implicit Net warning at AU8.v(69): created implicit net for "HEX0" File: D:/MyCSE2441Labs/Term_Project/AU/AU8.v Line: 69
+Warning (10236): Verilog HDL Implicit Net warning at AUChain.v(63): created implicit net for "HEX1" File: D:/MyCSE2441Labs/Term_Project/Calculator/AUChain.v Line: 63
+Warning (10236): Verilog HDL Implicit Net warning at AUChain.v(69): created implicit net for "HEX0" File: D:/MyCSE2441Labs/Term_Project/Calculator/AUChain.v Line: 69
+Info (12127): Elaborating entity "Calculator" for the top level hierarchy
+Warning (12125): Using design file /mycse2441labs/term_project/iu/keypad_input.v, which is not specified as a design file for the current project, but contains definitions for 1 design units and 1 entities in project
+    Info (12023): Found entity 1: keypad_input File: d:/mycse2441labs/term_project/iu/keypad_input.v Line: 2
+Info (12128): Elaborating entity "keypad_input" for hierarchy "keypad_input:keypad_input_inst" File: D:/MyCSE2441Labs/Term_Project/Calculator/Calculator.v Line: 26
+Warning (12125): Using design file /mycse2441labs/term_project/iu/keypad_base.v, which is not specified as a design file for the current project, but contains definitions for 1 design units and 1 entities in project
+    Info (12023): Found entity 1: keypad_base File: d:/mycse2441labs/term_project/iu/keypad_base.v Line: 2
+Info (12128): Elaborating entity "keypad_base" for hierarchy "keypad_input:keypad_input_inst|keypad_base:keypad_base" File: d:/mycse2441labs/term_project/iu/keypad_input.v Line: 19
+Warning (12125): Using design file /mycse2441labs/term_project/iu/clock_div.v, which is not specified as a design file for the current project, but contains definitions for 1 design units and 1 entities in project
+    Info (12023): Found entity 1: clock_div File: d:/mycse2441labs/term_project/iu/clock_div.v Line: 1
+Info (12128): Elaborating entity "clock_div" for hierarchy "keypad_input:keypad_input_inst|keypad_base:keypad_base|clock_div:keypad_clock_divider" File: d:/mycse2441labs/term_project/iu/keypad_base.v Line: 18
+Warning (12125): Using design file /mycse2441labs/term_project/iu/keypad_fsm.v, which is not specified as a design file for the current project, but contains definitions for 1 design units and 1 entities in project
+    Info (12023): Found entity 1: keypad_fsm File: d:/mycse2441labs/term_project/iu/keypad_fsm.v Line: 1
+Info (12128): Elaborating entity "keypad_fsm" for hierarchy "keypad_input:keypad_input_inst|keypad_base:keypad_base|keypad_fsm:keypad_fsm" File: d:/mycse2441labs/term_project/iu/keypad_base.v Line: 24
+Warning (12125): Using design file /mycse2441labs/term_project/iu/keypad_decoder.v, which is not specified as a design file for the current project, but contains definitions for 1 design units and 1 entities in project
+    Info (12023): Found entity 1: keypad_decoder File: d:/mycse2441labs/term_project/iu/keypad_decoder.v Line: 2
+Info (12128): Elaborating entity "keypad_decoder" for hierarchy "keypad_input:keypad_input_inst|keypad_base:keypad_base|keypad_decoder:keypad_key_decoder" File: d:/mycse2441labs/term_project/iu/keypad_base.v Line: 30
+Warning (12125): Using design file /mycse2441labs/term_project/iu/shift_reg.v, which is not specified as a design file for the current project, but contains definitions for 1 design units and 1 entities in project
+    Info (12023): Found entity 1: shift_reg File: d:/mycse2441labs/term_project/iu/shift_reg.v Line: 1
+Info (12128): Elaborating entity "shift_reg" for hierarchy "keypad_input:keypad_input_inst|shift_reg:shift_reg" File: d:/mycse2441labs/term_project/iu/keypad_input.v Line: 25
+Warning (12125): Using design file cu8.v, which is not specified as a design file for the current project, but contains definitions for 1 design units and 1 entities in project
+    Info (12023): Found entity 1: CU8 File: D:/MyCSE2441Labs/Term_Project/Calculator/cu8.v Line: 1
+Warning (10222): Verilog HDL Parameter Declaration warning at cu8.v(16): Parameter Declaration in module "CU8" behaves as a Local Parameter Declaration because the module has a Module Parameter Port List File: D:/MyCSE2441Labs/Term_Project/Calculator/cu8.v Line: 16
+Info (12128): Elaborating entity "CU8" for hierarchy "CU8:CU8_inst" File: D:/MyCSE2441Labs/Term_Project/Calculator/Calculator.v Line: 39
+Info (12128): Elaborating entity "IU8" for hierarchy "IU8:IU8_inst" File: D:/MyCSE2441Labs/Term_Project/Calculator/Calculator.v Line: 49
+Warning (12125): Using design file /mycse2441labs/term_project/iu/validity_checker.v, which is not specified as a design file for the current project, but contains definitions for 1 design units and 1 entities in project
+    Info (12023): Found entity 1: validity_checker File: d:/mycse2441labs/term_project/iu/validity_checker.v Line: 2
+Info (12128): Elaborating entity "validity_checker" for hierarchy "IU8:IU8_inst|validity_checker:validity_checker_inst" File: D:/MyCSE2441Labs/Term_Project/IU/IU8.v Line: 34
+Warning (12125): Using design file /mycse2441labs/term_project/iu/bcd2binarysm.v, which is not specified as a design file for the current project, but contains definitions for 1 design units and 1 entities in project
+    Info (12023): Found entity 1: BCD2BinarySM File: d:/mycse2441labs/term_project/iu/bcd2binarysm.v Line: 1
+Info (12128): Elaborating entity "BCD2BinarySM" for hierarchy "IU8:IU8_inst|BCD2BinarySM:BCD2BinarySM_inst" File: D:/MyCSE2441Labs/Term_Project/IU/IU8.v Line: 40
+Warning (12125): Using design file /mycse2441labs/term_project/iu/signtotwoc.v, which is not specified as a design file for the current project, but contains definitions for 1 design units and 1 entities in project
+    Info (12023): Found entity 1: SignToTwoC File: d:/mycse2441labs/term_project/iu/signtotwoc.v Line: 1
+Info (12128): Elaborating entity "SignToTwoC" for hierarchy "IU8:IU8_inst|SignToTwoC:SignToTwoC_inst" File: D:/MyCSE2441Labs/Term_Project/IU/IU8.v Line: 46
+Info (12128): Elaborating entity "AU8" for hierarchy "AU8:AU8_inst" File: D:/MyCSE2441Labs/Term_Project/Calculator/Calculator.v Line: 61
+Warning (12125): Using design file /mycse2441labs/term_project/au/nbitregister.v, which is not specified as a design file for the current project, but contains definitions for 1 design units and 1 entities in project
+    Info (12023): Found entity 1: NBitRegister File: d:/mycse2441labs/term_project/au/nbitregister.v Line: 2
+Info (12128): Elaborating entity "NBitRegister" for hierarchy "AU8:AU8_inst|NBitRegister:Register_A" File: D:/MyCSE2441Labs/Term_Project/AU/AU8.v Line: 23
+Warning (12125): Using design file /mycse2441labs/term_project/au/ripplecarryadderstructural.v, which is not specified as a design file for the current project, but contains definitions for 1 design units and 1 entities in project
+    Info (12023): Found entity 1: RippleCarryAdderStructural File: d:/mycse2441labs/term_project/au/ripplecarryadderstructural.v Line: 2
+Info (12128): Elaborating entity "RippleCarryAdderStructural" for hierarchy "AU8:AU8_inst|RippleCarryAdderStructural:RippleCarryAdderStructural_inst" File: D:/MyCSE2441Labs/Term_Project/AU/AU8.v Line: 42
+Warning (12125): Using design file /mycse2441labs/term_project/au/fabehav.v, which is not specified as a design file for the current project, but contains definitions for 1 design units and 1 entities in project
+    Info (12023): Found entity 1: FAbehav File: d:/mycse2441labs/term_project/au/fabehav.v Line: 2
+Info (12128): Elaborating entity "FAbehav" for hierarchy "AU8:AU8_inst|RippleCarryAdderStructural:RippleCarryAdderStructural_inst|FAbehav:s0" File: d:/mycse2441labs/term_project/au/ripplecarryadderstructural.v Line: 19
+Warning (12125): Using design file /mycse2441labs/term_project/ou/four2seven.v, which is not specified as a design file for the current project, but contains definitions for 1 design units and 1 entities in project
+    Info (12023): Found entity 1: four2seven File: d:/mycse2441labs/term_project/ou/four2seven.v Line: 2
+Info (12128): Elaborating entity "four2seven" for hierarchy "AU8:AU8_inst|four2seven:MSB" File: D:/MyCSE2441Labs/Term_Project/AU/AU8.v Line: 64
+Info (12128): Elaborating entity "OU8" for hierarchy "OU8:OU8_inst" File: D:/MyCSE2441Labs/Term_Project/Calculator/Calculator.v Line: 83
+Warning (12125): Using design file /mycse2441labs/term_project/ou/twoctosign.v, which is not specified as a design file for the current project, but contains definitions for 1 design units and 1 entities in project
+    Info (12023): Found entity 1: TwoCToSign File: d:/mycse2441labs/term_project/ou/twoctosign.v Line: 2
+Info (12128): Elaborating entity "TwoCToSign" for hierarchy "OU8:OU8_inst|TwoCToSign:TwoCToSign_inst" File: D:/MyCSE2441Labs/Term_Project/OU/OU8.v Line: 15
+Warning (12125): Using design file /mycse2441labs/term_project/ou/halfadder.v, which is not specified as a design file for the current project, but contains definitions for 1 design units and 1 entities in project
+    Info (12023): Found entity 1: halfADDER File: d:/mycse2441labs/term_project/ou/halfadder.v Line: 2
+Info (12128): Elaborating entity "halfADDER" for hierarchy "OU8:OU8_inst|TwoCToSign:TwoCToSign_inst|halfADDER:twosFor[0].halfADDER_inst1" File: d:/mycse2441labs/term_project/ou/twoctosign.v Line: 19
+Warning (12125): Using design file /mycse2441labs/term_project/ou/binary2bcd.v, which is not specified as a design file for the current project, but contains definitions for 1 design units and 1 entities in project
+    Info (12023): Found entity 1: binary2bcd File: d:/mycse2441labs/term_project/ou/binary2bcd.v Line: 1
+Info (12128): Elaborating entity "binary2bcd" for hierarchy "OU8:OU8_inst|binary2bcd:binary2bcd_inst" File: D:/MyCSE2441Labs/Term_Project/OU/OU8.v Line: 23
+Warning (12125): Using design file /mycse2441labs/term_project/ou/add3.v, which is not specified as a design file for the current project, but contains definitions for 1 design units and 1 entities in project
+    Info (12023): Found entity 1: add3 File: d:/mycse2441labs/term_project/ou/add3.v Line: 1
+Info (12128): Elaborating entity "add3" for hierarchy "OU8:OU8_inst|binary2bcd:binary2bcd_inst|add3:m1" File: d:/mycse2441labs/term_project/ou/binary2bcd.v Line: 20
+Info (12128): Elaborating entity "four2sevenTen" for hierarchy "OU8:OU8_inst|four2sevenTen:four2sevenTen_inst" File: D:/MyCSE2441Labs/Term_Project/OU/OU8.v Line: 44
+Info (12128): Elaborating entity "four2sevenHun" for hierarchy "OU8:OU8_inst|four2sevenHun:four2sevenHun_inst" File: D:/MyCSE2441Labs/Term_Project/OU/OU8.v Line: 60
+Warning (12125): Using design file /mycse2441labs/term_project/ou/displaynegative.v, which is not specified as a design file for the current project, but contains definitions for 1 design units and 1 entities in project
+    Info (12023): Found entity 1: displayNegative File: d:/mycse2441labs/term_project/ou/displaynegative.v Line: 2
+Info (12128): Elaborating entity "displayNegative" for hierarchy "OU8:OU8_inst|displayNegative:displayNegative_inst" File: D:/MyCSE2441Labs/Term_Project/OU/OU8.v Line: 67
+Warning (12011): Net is missing source, defaulting to GND
+    Warning (12110): Net "OU8:OU8_inst|hun[3]" is missing source, defaulting to GND File: D:/MyCSE2441Labs/Term_Project/OU/OU8.v Line: 9
+    Warning (12110): Net "OU8:OU8_inst|hun[2]" is missing source, defaulting to GND File: D:/MyCSE2441Labs/Term_Project/OU/OU8.v Line: 9
+Warning (19016): Clock multiplexers are found and protected
+    Warning (19017): Found clock multiplexer IU8:IU8_inst|keypad_input:keypad_input_inst|keypad_base:keypad_base|keypad_decoder:keypad_key_decoder|WideOr4~0 File: d:/mycse2441labs/term_project/iu/keypad_decoder.v Line: 20
+Info (278001): Inferred 1 megafunctions from design logic
+    Info (278003): Inferred multiplier megafunction ("lpm_mult") from the following logic: "IU8:IU8_inst|BCD2BinarySM:BCD2BinarySM_inst|Mult0" File: d:/mycse2441labs/term_project/iu/bcd2binarysm.v Line: 7
+Info (12130): Elaborated megafunction instantiation "IU8:IU8_inst|BCD2BinarySM:BCD2BinarySM_inst|lpm_mult:Mult0" File: d:/mycse2441labs/term_project/iu/bcd2binarysm.v Line: 7
+Info (12133): Instantiated megafunction "IU8:IU8_inst|BCD2BinarySM:BCD2BinarySM_inst|lpm_mult:Mult0" with the following parameter: File: d:/mycse2441labs/term_project/iu/bcd2binarysm.v Line: 7
+    Info (12134): Parameter "LPM_WIDTHA" = "4"
+    Info (12134): Parameter "LPM_WIDTHB" = "7"
+    Info (12134): Parameter "LPM_WIDTHP" = "11"
+    Info (12134): Parameter "LPM_WIDTHR" = "11"
+    Info (12134): Parameter "LPM_WIDTHS" = "1"
+    Info (12134): Parameter "LPM_REPRESENTATION" = "UNSIGNED"
+    Info (12134): Parameter "INPUT_A_IS_CONSTANT" = "NO"
+    Info (12134): Parameter "INPUT_B_IS_CONSTANT" = "YES"
+    Info (12134): Parameter "MAXIMIZE_SPEED" = "5"
+Info (12131): Elaborated megafunction instantiation "IU8:IU8_inst|BCD2BinarySM:BCD2BinarySM_inst|lpm_mult:Mult0|multcore:mult_core", which is child of megafunction instantiation "IU8:IU8_inst|BCD2BinarySM:BCD2BinarySM_inst|lpm_mult:Mult0" File: c:/intelfpga_lite/20.1/quartus/libraries/megafunctions/lpm_mult.tdf Line: 309
+Info (12131): Elaborated megafunction instantiation "IU8:IU8_inst|BCD2BinarySM:BCD2BinarySM_inst|lpm_mult:Mult0|multcore:mult_core|mpar_add:padder", which is child of megafunction instantiation "IU8:IU8_inst|BCD2BinarySM:BCD2BinarySM_inst|lpm_mult:Mult0" File: c:/intelfpga_lite/20.1/quartus/libraries/megafunctions/multcore.tdf Line: 229
+Info (12131): Elaborated megafunction instantiation "IU8:IU8_inst|BCD2BinarySM:BCD2BinarySM_inst|lpm_mult:Mult0|altshift:external_latency_ffs", which is child of megafunction instantiation "IU8:IU8_inst|BCD2BinarySM:BCD2BinarySM_inst|lpm_mult:Mult0" File: c:/intelfpga_lite/20.1/quartus/libraries/megafunctions/lpm_mult.tdf Line: 352
+Warning (12241): 8 hierarchies have connectivity warnings - see the Connectivity Checks report folder
+Warning (13024): Output pins are stuck at VCC or GND
+    Warning (13410): Pin "HEX3[5]" is stuck at VCC File: D:/MyCSE2441Labs/Term_Project/Calculator/Calculator.v Line: 7
+    Warning (13410): Pin "HEX3[4]" is stuck at VCC File: D:/MyCSE2441Labs/Term_Project/Calculator/Calculator.v Line: 7
+    Warning (13410): Pin "HEX3[3]" is stuck at VCC File: D:/MyCSE2441Labs/Term_Project/Calculator/Calculator.v Line: 7
+    Warning (13410): Pin "HEX3[2]" is stuck at VCC File: D:/MyCSE2441Labs/Term_Project/Calculator/Calculator.v Line: 7
+    Warning (13410): Pin "HEX3[1]" is stuck at VCC File: D:/MyCSE2441Labs/Term_Project/Calculator/Calculator.v Line: 7
+    Warning (13410): Pin "HEX3[0]" is stuck at VCC File: D:/MyCSE2441Labs/Term_Project/Calculator/Calculator.v Line: 7
+Info (286030): Timing-Driven Synthesis is running
+Info (17049): 5 registers lost all their fanouts during netlist optimizations.
+Info (144001): Generated suppressed messages file D:/MyCSE2441Labs/Term_Project/Calculator/output_files/Calculator.map.smsg
+Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
+    Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
+Info (21057): Implemented 434 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 7 input pins
+    Info (21059): Implemented 37 output pins
+    Info (21061): Implemented 390 logic cells
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 39 warnings
+    Info: Peak virtual memory: 4788 megabytes
+    Info: Processing ended: Mon Apr 29 15:02:05 2024
+    Info: Elapsed time: 00:00:18
+    Info: Total CPU time (on all processors): 00:00:19
+
+
++------------------------------------------+
+; Analysis & Synthesis Suppressed Messages ;
++------------------------------------------+
+The suppressed messages can be found in D:/MyCSE2441Labs/Term_Project/Calculator/output_files/Calculator.map.smsg.
+
+

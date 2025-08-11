@@ -1,0 +1,185 @@
+------------------------------------------------------------
+Timing Analyzer Summary
+------------------------------------------------------------
+
+Type  : Slow 1200mV 85C Model Setup 'FiveHzClockOnOff:FiveHzClockOnOff_inst|FiveHzClock:five_hz_clock|divideXn:div10|OUT'
+Slack : -1.709
+TNS   : -18.566
+
+Type  : Slow 1200mV 85C Model Setup 'FiveHzClockOnOff:FiveHzClockOnOff_inst|FiveHzClock:five_hz_clock|divideXn:div1000L|OUT'
+Slack : -1.558
+TNS   : -16.833
+
+Type  : Slow 1200mV 85C Model Setup 'FiveHzClockOnOff:FiveHzClockOnOff_inst|FiveHzClock:five_hz_clock|divideXn:div1000H|OUT'
+Slack : -1.354
+TNS   : -7.227
+
+Type  : Slow 1200mV 85C Model Setup 'clock'
+Slack : -0.294
+TNS   : -0.780
+
+Type  : Slow 1200mV 85C Model Setup 'switch'
+Slack : 0.298
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Hold 'clock'
+Slack : 0.348
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Hold 'FiveHzClockOnOff:FiveHzClockOnOff_inst|FiveHzClock:five_hz_clock|divideXn:div1000H|OUT'
+Slack : 0.363
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Hold 'switch'
+Slack : 0.393
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Hold 'FiveHzClockOnOff:FiveHzClockOnOff_inst|FiveHzClock:five_hz_clock|divideXn:div1000L|OUT'
+Slack : 0.433
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Hold 'FiveHzClockOnOff:FiveHzClockOnOff_inst|FiveHzClock:five_hz_clock|divideXn:div10|OUT'
+Slack : 0.636
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'clock'
+Slack : -3.000
+TNS   : -10.015
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'switch'
+Slack : -3.000
+TNS   : -4.403
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'FiveHzClockOnOff:FiveHzClockOnOff_inst|FiveHzClock:five_hz_clock|divideXn:div1000L|OUT'
+Slack : -1.403
+TNS   : -15.433
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'FiveHzClockOnOff:FiveHzClockOnOff_inst|FiveHzClock:five_hz_clock|divideXn:div10|OUT'
+Slack : -1.403
+TNS   : -15.433
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'FiveHzClockOnOff:FiveHzClockOnOff_inst|FiveHzClock:five_hz_clock|divideXn:div1000H|OUT'
+Slack : -1.403
+TNS   : -11.224
+
+Type  : Slow 1200mV 0C Model Setup 'FiveHzClockOnOff:FiveHzClockOnOff_inst|FiveHzClock:five_hz_clock|divideXn:div10|OUT'
+Slack : -1.516
+TNS   : -16.438
+
+Type  : Slow 1200mV 0C Model Setup 'FiveHzClockOnOff:FiveHzClockOnOff_inst|FiveHzClock:five_hz_clock|divideXn:div1000L|OUT'
+Slack : -1.349
+TNS   : -14.540
+
+Type  : Slow 1200mV 0C Model Setup 'FiveHzClockOnOff:FiveHzClockOnOff_inst|FiveHzClock:five_hz_clock|divideXn:div1000H|OUT'
+Slack : -1.126
+TNS   : -5.885
+
+Type  : Slow 1200mV 0C Model Setup 'clock'
+Slack : -0.177
+TNS   : -0.367
+
+Type  : Slow 1200mV 0C Model Setup 'switch'
+Slack : 0.361
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Hold 'clock'
+Slack : 0.310
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Hold 'FiveHzClockOnOff:FiveHzClockOnOff_inst|FiveHzClock:five_hz_clock|divideXn:div1000H|OUT'
+Slack : 0.328
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Hold 'switch'
+Slack : 0.354
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Hold 'FiveHzClockOnOff:FiveHzClockOnOff_inst|FiveHzClock:five_hz_clock|divideXn:div1000L|OUT'
+Slack : 0.398
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Hold 'FiveHzClockOnOff:FiveHzClockOnOff_inst|FiveHzClock:five_hz_clock|divideXn:div10|OUT'
+Slack : 0.587
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'clock'
+Slack : -3.000
+TNS   : -10.015
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'switch'
+Slack : -3.000
+TNS   : -4.403
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'FiveHzClockOnOff:FiveHzClockOnOff_inst|FiveHzClock:five_hz_clock|divideXn:div1000L|OUT'
+Slack : -1.403
+TNS   : -15.433
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'FiveHzClockOnOff:FiveHzClockOnOff_inst|FiveHzClock:five_hz_clock|divideXn:div10|OUT'
+Slack : -1.403
+TNS   : -15.433
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'FiveHzClockOnOff:FiveHzClockOnOff_inst|FiveHzClock:five_hz_clock|divideXn:div1000H|OUT'
+Slack : -1.403
+TNS   : -11.224
+
+Type  : Fast 1200mV 0C Model Setup 'FiveHzClockOnOff:FiveHzClockOnOff_inst|FiveHzClock:five_hz_clock|divideXn:div10|OUT'
+Slack : -0.126
+TNS   : -1.260
+
+Type  : Fast 1200mV 0C Model Setup 'FiveHzClockOnOff:FiveHzClockOnOff_inst|FiveHzClock:five_hz_clock|divideXn:div1000L|OUT'
+Slack : -0.091
+TNS   : -0.910
+
+Type  : Fast 1200mV 0C Model Setup 'FiveHzClockOnOff:FiveHzClockOnOff_inst|FiveHzClock:five_hz_clock|divideXn:div1000H|OUT'
+Slack : 0.042
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Setup 'clock'
+Slack : 0.429
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Setup 'switch'
+Slack : 0.693
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Hold 'clock'
+Slack : 0.151
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Hold 'FiveHzClockOnOff:FiveHzClockOnOff_inst|FiveHzClock:five_hz_clock|divideXn:div1000H|OUT'
+Slack : 0.156
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Hold 'switch'
+Slack : 0.169
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Hold 'FiveHzClockOnOff:FiveHzClockOnOff_inst|FiveHzClock:five_hz_clock|divideXn:div1000L|OUT'
+Slack : 0.172
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Hold 'FiveHzClockOnOff:FiveHzClockOnOff_inst|FiveHzClock:five_hz_clock|divideXn:div10|OUT'
+Slack : 0.246
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'clock'
+Slack : -3.000
+TNS   : -8.280
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'switch'
+Slack : -3.000
+TNS   : -4.099
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'FiveHzClockOnOff:FiveHzClockOnOff_inst|FiveHzClock:five_hz_clock|divideXn:div1000L|OUT'
+Slack : -1.000
+TNS   : -11.000
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'FiveHzClockOnOff:FiveHzClockOnOff_inst|FiveHzClock:five_hz_clock|divideXn:div10|OUT'
+Slack : -1.000
+TNS   : -11.000
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'FiveHzClockOnOff:FiveHzClockOnOff_inst|FiveHzClock:five_hz_clock|divideXn:div1000H|OUT'
+Slack : -1.000
+TNS   : -8.000
+
+------------------------------------------------------------

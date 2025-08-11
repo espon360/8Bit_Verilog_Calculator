@@ -1,0 +1,12 @@
+module Counter8Bit(
+    input clk,
+    input reset,
+    output reg [7:0] out
+);
+    always @(posedge clk or negedge reset) begin
+        if (!reset)
+            out <= 0;  // Reset the counter to 0
+        else
+            out <= out + 1;  // Increment the counter
+    end
+endmodule

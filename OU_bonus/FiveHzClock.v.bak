@@ -1,0 +1,30 @@
+// 5Hz clock with 50MHz clock as input
+module FiveHzClock //top module
+(
+input clock, reset,
+output FiveHz,
+);
+wire FiveMHz, FiveKHz;
+//instantiations
+divideXn #(4'd10, 4'd4) div10
+(
+.CLOCK(clock) , // input 10MHz clock
+.CLEAR(reset) , // input reset
+.OUT(FiveMHz) , // output 1-MHz clock
+.COUNT(count) // output [3:0] count bits
+);
+divideXn #(10'd1000, 4'd10) div1000L
+(
+.CLOCK(FiveMHz) , // input 1-MHz clock
+.CLEAR(reset) , // input reset
+.OUT(FiveKHz) , // output 1-KHz clock
+.COUNT(count) // output [3:0] count bits
+);
+divideXn #(10'd1000, 4'd10) div1000H
+(
+.CLOCK(OneKHz) , // input 1-KHz clock
+.CLEAR(reset) , // input reset
+.OUT(FiveHz) , // output 1-Hz clock
+.COUNT(count) // output [3:0] count bits
+);
+endmodule

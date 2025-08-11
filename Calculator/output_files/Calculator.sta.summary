@@ -1,0 +1,353 @@
+------------------------------------------------------------
+Timing Analyzer Summary
+------------------------------------------------------------
+
+Type  : Slow 1200mV 85C Model Setup 'CU8:CU8_inst|state.S2'
+Slack : -12.059
+TNS   : -91.923
+
+Type  : Slow 1200mV 85C Model Setup 'CU8:CU8_inst|state.S3'
+Slack : -11.709
+TNS   : -90.292
+
+Type  : Slow 1200mV 85C Model Setup 'clk'
+Slack : -7.014
+TNS   : -112.254
+
+Type  : Slow 1200mV 85C Model Setup 'CU8:CU8_inst|state.S4'
+Slack : -4.062
+TNS   : -25.517
+
+Type  : Slow 1200mV 85C Model Setup 'row[0]'
+Slack : -3.634
+TNS   : -32.637
+
+Type  : Slow 1200mV 85C Model Setup 'keypad_input:keypad_input_inst|keypad_base:keypad_base|clock_div:keypad_clock_divider|clk_track'
+Slack : -2.001
+TNS   : -11.519
+
+Type  : Slow 1200mV 85C Model Setup 'IU8:IU8_inst|keypad_input:keypad_input_inst|keypad_base:keypad_base|clock_div:keypad_clock_divider|clk_track'
+Slack : -1.804
+TNS   : -9.784
+
+Type  : Slow 1200mV 85C Model Hold 'row[0]'
+Slack : 0.265
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Hold 'keypad_input:keypad_input_inst|keypad_base:keypad_base|clock_div:keypad_clock_divider|clk_track'
+Slack : 0.341
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Hold 'clk'
+Slack : 0.342
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Hold 'IU8:IU8_inst|keypad_input:keypad_input_inst|keypad_base:keypad_base|clock_div:keypad_clock_divider|clk_track'
+Slack : 0.378
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Hold 'CU8:CU8_inst|state.S4'
+Slack : 0.915
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Hold 'CU8:CU8_inst|state.S3'
+Slack : 5.329
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Hold 'CU8:CU8_inst|state.S2'
+Slack : 5.487
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Recovery 'row[0]'
+Slack : -0.994
+TNS   : -12.840
+
+Type  : Slow 1200mV 85C Model Recovery 'CU8:CU8_inst|state.S3'
+Slack : -0.666
+TNS   : -5.208
+
+Type  : Slow 1200mV 85C Model Recovery 'CU8:CU8_inst|state.S4'
+Slack : -0.531
+TNS   : -3.906
+
+Type  : Slow 1200mV 85C Model Recovery 'CU8:CU8_inst|state.S2'
+Slack : -0.518
+TNS   : -3.961
+
+Type  : Slow 1200mV 85C Model Removal 'row[0]'
+Slack : 0.089
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Removal 'CU8:CU8_inst|state.S2'
+Slack : 0.683
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Removal 'CU8:CU8_inst|state.S4'
+Slack : 0.771
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Removal 'CU8:CU8_inst|state.S3'
+Slack : 1.022
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'row[0]'
+Slack : -3.000
+TNS   : -76.709
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'clk'
+Slack : -3.000
+TNS   : -59.120
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'CU8:CU8_inst|state.S2'
+Slack : -1.403
+TNS   : -11.224
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'CU8:CU8_inst|state.S3'
+Slack : -1.403
+TNS   : -11.224
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'CU8:CU8_inst|state.S4'
+Slack : -1.403
+TNS   : -11.224
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'IU8:IU8_inst|keypad_input:keypad_input_inst|keypad_base:keypad_base|clock_div:keypad_clock_divider|clk_track'
+Slack : -1.403
+TNS   : -11.224
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'keypad_input:keypad_input_inst|keypad_base:keypad_base|clock_div:keypad_clock_divider|clk_track'
+Slack : -1.403
+TNS   : -11.224
+
+Type  : Slow 1200mV 0C Model Setup 'CU8:CU8_inst|state.S2'
+Slack : -10.976
+TNS   : -83.722
+
+Type  : Slow 1200mV 0C Model Setup 'CU8:CU8_inst|state.S3'
+Slack : -10.672
+TNS   : -82.249
+
+Type  : Slow 1200mV 0C Model Setup 'clk'
+Slack : -6.356
+TNS   : -98.497
+
+Type  : Slow 1200mV 0C Model Setup 'CU8:CU8_inst|state.S4'
+Slack : -3.665
+TNS   : -22.878
+
+Type  : Slow 1200mV 0C Model Setup 'row[0]'
+Slack : -3.374
+TNS   : -29.090
+
+Type  : Slow 1200mV 0C Model Setup 'keypad_input:keypad_input_inst|keypad_base:keypad_base|clock_div:keypad_clock_divider|clk_track'
+Slack : -1.819
+TNS   : -10.096
+
+Type  : Slow 1200mV 0C Model Setup 'IU8:IU8_inst|keypad_input:keypad_input_inst|keypad_base:keypad_base|clock_div:keypad_clock_divider|clk_track'
+Slack : -1.612
+TNS   : -8.477
+
+Type  : Slow 1200mV 0C Model Hold 'row[0]'
+Slack : 0.112
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Hold 'clk'
+Slack : 0.307
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Hold 'keypad_input:keypad_input_inst|keypad_base:keypad_base|clock_div:keypad_clock_divider|clk_track'
+Slack : 0.307
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Hold 'IU8:IU8_inst|keypad_input:keypad_input_inst|keypad_base:keypad_base|clock_div:keypad_clock_divider|clk_track'
+Slack : 0.339
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Hold 'CU8:CU8_inst|state.S4'
+Slack : 0.852
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Hold 'CU8:CU8_inst|state.S3'
+Slack : 5.006
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Hold 'CU8:CU8_inst|state.S2'
+Slack : 5.106
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Recovery 'row[0]'
+Slack : -0.716
+TNS   : -9.229
+
+Type  : Slow 1200mV 0C Model Recovery 'CU8:CU8_inst|state.S3'
+Slack : -0.568
+TNS   : -4.412
+
+Type  : Slow 1200mV 0C Model Recovery 'CU8:CU8_inst|state.S2'
+Slack : -0.425
+TNS   : -3.179
+
+Type  : Slow 1200mV 0C Model Recovery 'CU8:CU8_inst|state.S4'
+Slack : -0.398
+TNS   : -2.854
+
+Type  : Slow 1200mV 0C Model Removal 'row[0]'
+Slack : -0.011
+TNS   : -0.011
+
+Type  : Slow 1200mV 0C Model Removal 'CU8:CU8_inst|state.S2'
+Slack : 0.633
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Removal 'CU8:CU8_inst|state.S4'
+Slack : 0.721
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Removal 'CU8:CU8_inst|state.S3'
+Slack : 0.913
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'row[0]'
+Slack : -3.000
+TNS   : -71.106
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'clk'
+Slack : -3.000
+TNS   : -59.120
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'CU8:CU8_inst|state.S2'
+Slack : -1.403
+TNS   : -11.224
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'CU8:CU8_inst|state.S3'
+Slack : -1.403
+TNS   : -11.224
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'CU8:CU8_inst|state.S4'
+Slack : -1.403
+TNS   : -11.224
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'IU8:IU8_inst|keypad_input:keypad_input_inst|keypad_base:keypad_base|clock_div:keypad_clock_divider|clk_track'
+Slack : -1.403
+TNS   : -11.224
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'keypad_input:keypad_input_inst|keypad_base:keypad_base|clock_div:keypad_clock_divider|clk_track'
+Slack : -1.403
+TNS   : -11.224
+
+Type  : Fast 1200mV 0C Model Setup 'CU8:CU8_inst|state.S2'
+Slack : -4.927
+TNS   : -37.743
+
+Type  : Fast 1200mV 0C Model Setup 'CU8:CU8_inst|state.S3'
+Slack : -4.779
+TNS   : -36.961
+
+Type  : Fast 1200mV 0C Model Setup 'clk'
+Slack : -2.365
+TNS   : -24.663
+
+Type  : Fast 1200mV 0C Model Setup 'row[0]'
+Slack : -1.375
+TNS   : -14.184
+
+Type  : Fast 1200mV 0C Model Setup 'CU8:CU8_inst|state.S4'
+Slack : -1.251
+TNS   : -7.139
+
+Type  : Fast 1200mV 0C Model Setup 'IU8:IU8_inst|keypad_input:keypad_input_inst|keypad_base:keypad_base|clock_div:keypad_clock_divider|clk_track'
+Slack : -0.724
+TNS   : -2.478
+
+Type  : Fast 1200mV 0C Model Setup 'keypad_input:keypad_input_inst|keypad_base:keypad_base|clock_div:keypad_clock_divider|clk_track'
+Slack : -0.534
+TNS   : -1.946
+
+Type  : Fast 1200mV 0C Model Hold 'row[0]'
+Slack : 0.058
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Hold 'clk'
+Slack : 0.125
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Hold 'keypad_input:keypad_input_inst|keypad_base:keypad_base|clock_div:keypad_clock_divider|clk_track'
+Slack : 0.147
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Hold 'IU8:IU8_inst|keypad_input:keypad_input_inst|keypad_base:keypad_base|clock_div:keypad_clock_divider|clk_track'
+Slack : 0.166
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Hold 'CU8:CU8_inst|state.S4'
+Slack : 0.314
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Hold 'CU8:CU8_inst|state.S3'
+Slack : 2.038
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Hold 'CU8:CU8_inst|state.S2'
+Slack : 2.113
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Recovery 'row[0]'
+Slack : -0.182
+TNS   : -2.329
+
+Type  : Fast 1200mV 0C Model Recovery 'CU8:CU8_inst|state.S3'
+Slack : 0.178
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Recovery 'CU8:CU8_inst|state.S2'
+Slack : 0.229
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Recovery 'CU8:CU8_inst|state.S4'
+Slack : 0.263
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Removal 'CU8:CU8_inst|state.S2'
+Slack : 0.300
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Removal 'CU8:CU8_inst|state.S4'
+Slack : 0.311
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Removal 'row[0]'
+Slack : 0.359
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Removal 'CU8:CU8_inst|state.S3'
+Slack : 0.430
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'row[0]'
+Slack : -3.000
+TNS   : -44.724
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'clk'
+Slack : -3.000
+TNS   : -44.161
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'CU8:CU8_inst|state.S2'
+Slack : -1.000
+TNS   : -8.000
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'CU8:CU8_inst|state.S3'
+Slack : -1.000
+TNS   : -8.000
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'CU8:CU8_inst|state.S4'
+Slack : -1.000
+TNS   : -8.000
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'IU8:IU8_inst|keypad_input:keypad_input_inst|keypad_base:keypad_base|clock_div:keypad_clock_divider|clk_track'
+Slack : -1.000
+TNS   : -8.000
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'keypad_input:keypad_input_inst|keypad_base:keypad_base|clock_div:keypad_clock_divider|clk_track'
+Slack : -1.000
+TNS   : -8.000
+
+------------------------------------------------------------

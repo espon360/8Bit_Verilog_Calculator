@@ -1,0 +1,35 @@
+// Control unit
+module CU8 #(parameter N = 4)
+(
+    input [N-1:0] value,
+    input trig, clearEntry, clearAll, clk,
+    output reg reset, LoadA, LoadB, AddSub, LoadR, IUAU
+);
+
+	localparam S0 = 4'b0000, // Start
+				  S1 = 4'b0001, // Entered in first value already (load A triggered)
+				  S2 = 4'b0010, // Entered operator
+				  S3 = 4'b0011, // Entered in second value already (Load B triggered)
+				  S4 = 4'b0100; // Hit = to output the result
+
+	reg [3:0] state = S0;
+
+	always @(posedge clk) begin
+		 if (clearAll)
+			  state <= S0;
+		 else begin
+			  case (state)
+					S0: begin reset <= 0; LoadA <= 1; AddSub <= 1; LoadB <= 1; LoadR <= 1; IUAU <= 0; 
+						 if (trig) state <= S1; end
+					S1: begin reset <= 1; LoadA <= 0; AddSub <= 1; LoadB <= 1; LoadR <= 1; IUAU <= 0;
+						 if (trig) state <= S2; else if (clearEntry) state <= S0; end
+					S2: begin reset <= 1; LoadA <= 1; AddSub <= 0; LoadB <= 1; LoadR <= 1; IUAU <= 0; 
+						 if (trig) state <= S3; else if (clearEntry) state <= S0; end
+					S3: begin reset <= 1; LoadA <= 1; AddSub <= 1; LoadB <= 0; LoadR <= 1; IUAU <= 0;
+						 if (trig) state <= S4; else if (clearEntry) state <= S2; end
+					S4: begin reset <= 1; LoadA <= 1; AddSub <= 1; LoadB <= 1; LoadR <= 0; IUAU <= 1; 
+						 if (trig) state <= S0; else if (clearEntry) state <= S3; end
+			  endcase
+		 end
+	end
+endmodule

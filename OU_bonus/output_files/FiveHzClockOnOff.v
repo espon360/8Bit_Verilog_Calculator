@@ -1,0 +1,27 @@
+module FiveHzClockOnOff(
+    input clock, reset, on_off_switch,
+    output FiveHz_out
+);
+
+wire FiveHz_signal;
+wire toggle_output;
+
+// Instantiate FiveHzClock
+FiveHzClock five_hz_clock (
+    .clock(clock),
+    .reset(reset),
+    .FiveHz(FiveHz_signal)
+);
+
+// Instantiate OnOffToggle
+OnOffToggle on_off_toggle (
+    .OnOff(on_off_switch),
+    .IN(FiveHz_signal),
+    .OUT(toggle_output)
+);
+
+// Assign the toggled output to OneHz_out
+assign FiveHz_out = toggle_output;
+
+endmodule
+

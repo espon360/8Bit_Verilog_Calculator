@@ -1,0 +1,3 @@
+Info (10281): Verilog HDL Declaration information at CU8.v(8): object "trig" differs only in case from object "Trig" in the same scope File: D:/MyCSE2441Labs/Term_Project/CU/CU8.v Line: 8
+Info (10281): Verilog HDL Declaration information at CU8.v(8): object "clearEntry" differs only in case from object "ClearEntry" in the same scope File: D:/MyCSE2441Labs/Term_Project/CU/CU8.v Line: 8
+Info (10281): Verilog HDL Declaration information at CU8.v(8): object "clearAll" differs only in case from object "ClearAll" in the same scope File: D:/MyCSE2441Labs/Term_Project/CU/CU8.v Line: 8

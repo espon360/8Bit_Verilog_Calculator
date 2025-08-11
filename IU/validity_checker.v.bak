@@ -1,0 +1,5 @@
+//Test validity of input
+module validity_checker
+(
+	input [15:0] BCD,
+);

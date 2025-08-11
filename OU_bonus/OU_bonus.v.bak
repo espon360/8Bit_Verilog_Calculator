@@ -1,0 +1,6 @@
+module OU_bonus
+(
+	input clock, reset,
+	output [0:6] HEX3, HEX2, HEX1, HEX0
+);
+
